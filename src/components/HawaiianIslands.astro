@@ -1,15 +1,12 @@
 ---
 interface Props {
-  /** Override classes on the outer SVG (sizing, opacity, etc.) */
   class?: string;
-  /** Show the small "Hawai'i Island" label connecting to Big Island */
   showLabel?: boolean;
 }
-
 const { class: className = "", showLabel = true } = Astro.props;
 ---
 <svg
-  viewBox="0 0 1200 360"
+  viewBox="-30 0 2360 1300"
   xmlns="http://www.w3.org/2000/svg"
   role="img"
   aria-labelledby="hi-title hi-desc"
@@ -17,188 +14,125 @@ const { class: className = "", showLabel = true } = Astro.props;
 >
   <title id="hi-title">The Hawaiian Islands</title>
   <desc id="hi-desc">
-    A simplified silhouette of the eight main Hawaiian Islands, with Hawai‘i
-    Island (the Big Island) highlighted to show the Foundation's home base.
+    A silhouette of the eight main Hawaiian Islands, with Hawai‘i Island
+    (the Big Island) highlighted to show the Foundation’s home base.
   </desc>
-
   <defs>
-    <linearGradient id="bigislandFill" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bigFill" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#E66B52"/>
       <stop offset="100%" stop-color="#D9472B"/>
     </linearGradient>
     <linearGradient id="islandFill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#E8DCC2"/>
-      <stop offset="100%" stop-color="#D7C8A4"/>
+      <stop offset="100%" stop-color="#CBB78F"/>
     </linearGradient>
-    <filter id="islandShadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="3" result="offsetblur"/>
+    <filter id="islandShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="6" result="offsetblur"/>
       <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
       <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="bigShadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
-      <feOffset dx="0" dy="6" result="offsetblur"/>
+    <filter id="bigShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14"/>
+      <feOffset dx="0" dy="14" result="offsetblur"/>
       <feComponentTransfer><feFuncA type="linear" slope="0.30"/></feComponentTransfer>
       <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
-  <!-- Subtle ocean dotted line connecting the chain -->
-  <path
-    d="M 70 160 Q 250 110, 470 175 T 870 215"
-    fill="none"
-    stroke="rgba(191, 216, 229, 0.55)"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-dasharray="2 8"
-  />
-
-  <g filter="url(#islandShadow)">
-    <!-- Niʻihau (NW-most, small) -->
-    <path
-      d="M 55 155
-         q 8 -16 22 -10
-         q 14 6 14 22
-         q -2 14 -16 18
-         q -16 4 -22 -10
-         q -6 -12 2 -20 z"
-      fill="url(#islandFill)"
-    />
-
-    <!-- Kauaʻi (round mountain) -->
-    <path
-      d="M 130 145
-         q 16 -22 44 -16
-         q 28 6 36 28
-         q 6 22 -10 38
-         q -22 18 -50 8
-         q -22 -8 -28 -28
-         q -4 -18 8 -30 z"
-      fill="url(#islandFill)"
-    />
-
-    <!-- Oʻahu (two ridges, distinctive) -->
-    <path
-      d="M 250 158
-         q 10 -18 30 -18
-         q 20 0 28 14
-         q 12 -2 20 8
-         q 10 16 0 30
-         q -10 16 -28 14
-         q -22 -2 -38 -14
-         q -18 -16 -12 -34 z"
-      fill="url(#islandFill)"
-    />
-
-    <!-- Molokaʻi (long thin E-W) -->
-    <path
-      d="M 380 175
-         q 30 -10 70 -6
-         q 40 4 60 4
-         q 18 4 18 14
-         q 0 12 -22 14
-         q -36 4 -76 0
-         q -40 -4 -52 -10
-         q -10 -8 2 -16 z"
-      fill="url(#islandFill)"
-    />
-
-    <!-- Lānaʻi (small oval) -->
-    <path
-      d="M 490 222
-         q 8 -14 24 -12
-         q 18 2 22 16
-         q 2 14 -12 20
-         q -16 6 -28 -4
-         q -10 -10 -6 -20 z"
-      fill="url(#islandFill)"
-    />
-
-    <!-- Kahoʻolawe (smallest, bottom) -->
-    <path
-      d="M 540 268
-         q 6 -10 18 -8
-         q 14 2 14 12
-         q -2 10 -14 12
-         q -14 2 -20 -6
-         q -4 -6 2 -10 z"
-      fill="url(#islandFill)"
-    />
-
-    <!-- Maui (figure-8 silhouette) -->
-    <path
-      d="M 590 200
-         q 14 -22 38 -22
-         q 22 0 30 16
-         q 14 -8 32 -2
-         q 24 8 30 30
-         q 4 22 -18 32
-         q -22 8 -42 -2
-         q -10 14 -30 12
-         q -26 -2 -38 -22
-         q -10 -22 -2 -42 z"
-      fill="url(#islandFill)"
-    />
+  {/* All islands except the Big Island, in sand */}
+  <g transform="translate(0,1226.926035) scale(0.1,-0.1)" fill="url(#islandFill)" filter="url(#islandShadow)">
+    <path d="M2912 12253 c-19 -13 -35 -14 -113 -6 -103 12 -162 3 -197 -30 -23
+-21 -23 -21 -70 -3 -112 45 -204 29 -291 -50 -49 -43 -198 -113 -269 -124 -99
+-17 -146 -65 -166 -173 -5 -26 -24 -56 -65 -100 -98 -105 -102 -119 -67 -270
+31 -130 74 -169 201 -182 38 -4 86 -15 106 -26 37 -19 46 -28 154 -165 80
+-103 129 -130 212 -120 44 5 75 1 142 -17 235 -66 315 -66 428 0 56 32 203
+177 203 200 0 8 19 33 43 54 l42 39 1 138 c1 153 0 150 95 349 58 122 62 153
+29 228 -47 104 -125 178 -216 201 -34 9 -69 27 -88 45 -35 33 -77 37 -114 12z"/>
+    <path d="M567 11503 c-4 -3 -7 -14 -7 -23 0 -10 -15 -37 -34 -62 -19 -24 -39
+-62 -45 -84 -6 -21 -18 -49 -27 -62 -16 -23 -110 -72 -138 -72 -8 0 -32 -17
+-53 -37 -21 -21 -60 -49 -86 -64 -49 -25 -76 -57 -102 -116 -11 -27 -20 -33
+-44 -33 l-31 0 0 -100 0 -100 34 0 c28 0 36 -5 46 -30 15 -35 61 -77 95 -86
+47 -12 62 3 89 87 47 145 140 239 239 239 38 0 92 24 122 55 26 25 26 28 20
+118 l-7 92 56 60 c31 33 58 68 62 78 8 25 -21 66 -59 82 -18 7 -43 25 -56 39
+-23 25 -60 34 -74 19z"/>
+    <path d="M7738 10324 c-26 -13 -64 -43 -85 -66 -21 -23 -57 -61 -79 -83 -23
+-22 -57 -69 -75 -105 -86 -165 -162 -199 -454 -200 -219 -2 -252 -23 -155
+-101 73 -60 80 -76 80 -189 0 -110 8 -128 90 -206 49 -47 53 -55 58 -106 5
+-62 16 -78 97 -132 53 -35 81 -92 104 -213 26 -137 115 -190 243 -144 76 28
+189 61 207 61 9 0 31 9 49 20 42 26 63 25 97 -2 25 -19 38 -21 139 -19 120 1
+128 -1 197 -68 13 -13 49 -42 79 -65 30 -22 63 -51 73 -63 10 -13 29 -23 41
+-23 13 0 37 10 55 23 17 12 48 34 69 49 20 15 56 30 79 34 40 6 45 4 76 -30
+42 -45 51 -45 119 2 88 60 118 100 118 159 0 59 -12 73 -61 73 -49 0 -60 16
+-69 102 -13 114 -29 140 -98 168 -63 25 -70 83 -16 142 25 28 34 47 32 66 -3
+27 -4 27 -72 24 -68 -3 -126 -23 -126 -43 0 -6 11 -24 25 -41 28 -34 32 -60
+10 -78 -31 -26 -224 100 -260 170 -23 44 -19 101 10 144 58 86 7 182 -105 196
+-44 5 -45 6 -80 76 -56 113 -62 132 -70 204 -8 73 -17 92 -90 188 -78 103
+-154 126 -252 76z"/>
+    <path d="M10354 8550 c-29 -12 -37 -39 -19 -66 29 -44 19 -76 -45 -150 -118
+-135 -163 -226 -128 -260 50 -51 516 -56 648 -8 86 32 193 24 285 -20 44 -21
+105 -45 135 -52 58 -14 187 -47 255 -66 22 -6 103 -11 180 -12 132 0 143 1
+196 27 140 68 338 265 341 339 3 86 -25 92 -372 93 -329 0 -319 -2 -395 94
+-52 67 -91 89 -124 72 -25 -14 -44 -47 -36 -62 11 -17 -16 -39 -49 -39 -18 0
+-66 9 -107 20 -53 15 -120 22 -239 26 -133 5 -181 11 -250 31 -145 42 -229 52
+-276 33z"/>
+    <path d="M12466 7810 c-15 -10 -46 -44 -68 -77 -22 -32 -47 -65 -54 -74 -8 -9
+-24 -66 -36 -128 -22 -111 -22 -113 -3 -189 23 -94 21 -91 72 -144 118 -121
+355 -274 433 -278 58 -3 66 -1 105 30 63 50 117 34 171 -51 61 -98 71 -164 64
+-434 -3 -160 6 -190 75 -230 162 -96 425 -76 595 44 131 93 99 84 295 82 l175
+-1 52 55 52 56 67 -3 c74 -2 94 7 104 51 7 33 34 62 97 102 94 60 128 210 74
+324 -34 72 -61 93 -143 110 -94 20 -102 23 -146 62 -32 29 -44 33 -91 33 -52
+0 -86 16 -86 41 0 17 -40 49 -62 49 -44 0 -105 40 -153 101 -61 78 -166 162
+-235 188 -122 47 -234 35 -410 -47 -140 -64 -209 -85 -289 -86 l-74 0 -41 45
+c-42 47 -64 87 -111 194 -29 66 -56 93 -130 131 -127 64 -241 81 -299 44z"/>
+    <path d="M11101 7458 c-52 -27 -101 -90 -101 -129 0 -36 27 -61 115 -104 91
+-45 119 -95 129 -223 7 -110 37 -191 79 -218 86 -57 220 -48 362 26 128 66
+195 149 195 242 0 80 -76 204 -158 255 -15 10 -57 42 -94 71 -117 93 -120 94
+-313 99 -162 4 -172 3 -214 -19z"/>
+    <path d="M12616 6259 c-22 -11 -62 -37 -90 -58 -51 -36 -135 -81 -153 -81 -41
+0 -104 -82 -95 -125 9 -51 56 -79 124 -75 35 2 112 3 172 1 118 -3 187 9 226
+39 22 17 25 27 27 87 1 37 5 89 8 114 6 42 4 49 -25 83 -30 34 -35 36 -94 36
+-43 0 -73 -6 -100 -21z"/>
   </g>
 
-  <!-- ── Hawaiʻi Island (the Big Island, highlighted) ── -->
-  <g filter="url(#bigShadow)">
-    <path
-      d="M 800 195
-         q 30 -34 80 -28
-         q 50 6 78 36
-         q 30 32 28 76
-         q -2 50 -38 78
-         q -42 32 -92 16
-         q -56 -18 -76 -64
-         q -16 -44 0 -82
-         q 8 -22 20 -32 z"
-      fill="url(#bigislandFill)"
-    />
-    <!-- inner highlight -->
-    <path
-      d="M 830 215
-         q 22 -18 56 -10
-         q 32 8 48 32"
-      fill="none"
-      stroke="rgba(255, 255, 255, 0.30)"
-      stroke-width="3"
-      stroke-linecap="round"
-    />
-    <!-- center marker -->
-    <circle cx="870" cy="245" r="5" fill="#FFFFFF"/>
-    <circle cx="870" cy="245" r="11" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2"/>
+  {/* Big Island, in lava */}
+  <g transform="translate(0,1226.926035) scale(0.1,-0.1)" fill="url(#bigFill)" filter="url(#bigShadow)">
+    <path d="M15142 5051 c-92 -37 -116 -103 -110 -313 4 -140 4 -144 36 -198 17
+-30 40 -71 51 -90 11 -19 43 -64 72 -100 106 -131 129 -169 129 -220 0 -54
+-27 -97 -93 -147 -149 -112 -216 -201 -229 -301 -10 -72 -43 -110 -105 -118
+-50 -6 -125 -64 -260 -200 -35 -36 -73 -109 -73 -140 0 -16 -9 -49 -20 -73
+-38 -83 -21 -163 55 -257 18 -22 38 -59 44 -81 10 -35 18 -44 66 -68 30 -16
+62 -36 70 -45 32 -35 55 -128 59 -233 5 -139 66 -268 144 -304 36 -17 37 -20
+39 -73 4 -84 23 -203 37 -225 20 -33 63 -166 76 -232 12 -66 1 -158 -27 -238
+-29 -80 -88 -530 -78 -599 8 -63 13 -72 98 -181 97 -124 105 -130 216 -155
+112 -25 148 -41 212 -95 26 -22 74 -50 108 -63 65 -25 181 -128 213 -189 9
+-18 24 -33 33 -33 17 0 95 67 95 82 0 12 90 128 99 128 35 0 141 157 141 210
+0 5 15 33 34 62 18 29 37 64 41 78 44 144 168 266 316 311 54 16 77 31 125 77
+94 91 145 128 212 153 66 25 118 68 197 162 79 93 169 117 294 77 82 -26 204
+-36 259 -21 36 10 155 99 197 147 14 16 151 94 165 94 6 0 28 9 48 19 20 11
+60 30 87 43 79 38 125 74 205 162 86 94 110 112 200 150 183 78 221 102 256
+157 19 31 30 39 54 39 l30 0 0 85 0 85 -31 0 c-21 0 -38 9 -55 30 -24 28 -136
+88 -194 104 -96 27 -146 58 -195 122 -27 36 -75 92 -105 126 -64 71 -85 118
+-93 218 -11 126 -61 171 -204 184 -54 5 -119 30 -146 56 -21 19 -26 89 -15
+185 19 169 9 188 -225 423 -190 192 -285 263 -482 356 -121 58 -278 136 -398
+199 -60 32 -114 57 -120 57 -7 0 -25 7 -42 16 -16 9 -43 20 -60 25 -16 4 -75
+24 -130 44 -92 34 -109 37 -222 39 -93 1 -126 5 -140 17 -10 9 -33 22 -51 29
+-18 7 -62 39 -97 70 -35 32 -93 72 -131 90 -38 17 -84 39 -103 48 -19 10 -71
+51 -117 92 -143 130 -340 191 -462 141z"/>
   </g>
 
   {showLabel && (
     <g>
-      <!-- thin connector line from marker to label -->
-      <path
-        d="M 884 245 Q 940 245, 970 230"
-        stroke="rgba(14, 27, 44, 0.25)"
-        stroke-width="1"
-        fill="none"
-        stroke-linecap="round"
-      />
-      <text
-        x="976"
-        y="226"
-        font-family="DM Mono, monospace"
-        font-size="13"
-        font-weight="500"
-        letter-spacing="2.4"
-        fill="#0E1B2C"
-        opacity="0.78"
-      >HAWAIʻI ISLAND</text>
-      <text
-        x="976"
-        y="246"
-        font-family="DM Mono, monospace"
-        font-size="11"
-        letter-spacing="2"
-        fill="#5B6470"
-      >home of the foundation</text>
+      {/* marker on Big Island */}
+      <circle cx="1700" cy="900" r="9" fill="#FFFFFF"/>
+      <circle cx="1700" cy="900" r="18" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="3"/>
+      <circle cx="1700" cy="900" r="28" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+      {/* connector line to label */}
+      <path d="M 1718 900 Q 1850 870, 1980 850" stroke="rgba(14,27,44,0.30)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="1980" cy="850" r="3" fill="#0E1B2C" opacity="0.55"/>
+      {/* label */}
+      <text x="2000" y="845" font-family="DM Mono, monospace" font-size="22" font-weight="600" letter-spacing="3" fill="#0E1B2C" opacity="0.85">HAWAIʻI ISLAND</text>
+      <text x="2000" y="880" font-family="DM Mono, monospace" font-size="18" letter-spacing="2.4" fill="#5B6470">home of the foundation</text>
     </g>
   )}
 </svg>
