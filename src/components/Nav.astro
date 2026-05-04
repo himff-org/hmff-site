@@ -1,0 +1,54 @@
+---
+const links = [
+  { href: "#programs", label: "Programs" },
+  { href: "#vendors", label: "Vendors" },
+  { href: "#about", label: "About" },
+];
+---
+<nav id="site-nav" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+  <div class="container-x flex items-center justify-between py-4 md:py-5">
+    <a href="#top" class="group flex items-center gap-2.5 no-underline" aria-label="Hawaii Mobile Food Foundation — home">
+      <svg viewBox="0 0 64 64" class="h-9 w-9 transition-transform group-hover:rotate-3" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="currentColor" class="text-ink"/>
+        <path d="M10 44 Q 20 30 32 36 T 54 30" stroke="#E2B23A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="14" cy="44" r="2.6" fill="#D9472B"/>
+        <circle cx="32" cy="36" r="2.6" fill="#D9472B"/>
+        <circle cx="50" cy="30" r="2.6" fill="#D9472B"/>
+      </svg>
+      <span class="font-display text-base md:text-lg leading-none tracking-tight">
+        <span class="block font-medium">Hawaii Mobile Food</span>
+        <span class="block text-stone text-[0.7rem] md:text-xs uppercase tracking-[0.2em] font-mono">Foundation</span>
+      </span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-7">
+      {links.map((l) => (
+        <a href={l.href} class="text-sm no-underline text-ink/80 hover:text-ink transition-colors">
+          {l.label}
+        </a>
+      ))}
+      <a href="#support" class="btn btn-donor !py-2.5 !px-5 text-sm">
+        Donate
+      </a>
+    </div>
+
+    <a href="#support" class="md:hidden btn btn-donor !py-2 !px-4 text-xs">
+      Donate
+    </a>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById("site-nav");
+  if (nav) {
+    const update = () => {
+      const scrolled = window.scrollY > 30;
+      nav.classList.toggle("backdrop-blur-md", scrolled);
+      nav.classList.toggle("bg-cream/85", scrolled);
+      nav.classList.toggle("border-b", scrolled);
+      nav.classList.toggle("border-ink/8", scrolled);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+</script>

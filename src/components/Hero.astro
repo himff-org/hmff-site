@@ -1,0 +1,66 @@
+---
+import DualCTA from "./DualCTA.astro";
+import OleloPhrase from "./ui/OleloPhrase.astro";
+---
+<section id="top" class="relative isolate overflow-hidden bg-ink text-cream pt-28 md:pt-36 pb-20 md:pb-28 min-h-[92svh] flex items-center">
+  <!-- Topographic backdrop -->
+  <div class="absolute inset-0 -z-10 topo opacity-90"></div>
+
+  <!-- Soft warm gradient at the bottom -->
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 -z-10
+              bg-[radial-gradient(ellipse_at_70%_100%,rgba(217,71,43,0.18),transparent_55%),radial-gradient(ellipse_at_15%_90%,rgba(226,178,58,0.10),transparent_50%)]">
+  </div>
+
+  <!-- Hand-drawn island silhouette -->
+  <svg viewBox="0 0 1440 380" preserveAspectRatio="none"
+       class="pointer-events-none absolute -bottom-1 left-0 right-0 -z-10 w-full h-[42%] opacity-90"
+       aria-hidden="true">
+    <defs>
+      <linearGradient id="islandFill" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1A2A3F"/>
+        <stop offset="100%" stop-color="#0E1B2C"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,260 C90,210 170,250 240,235 C310,222 350,170 430,168 C520,166 560,235 640,228 C730,220 760,170 850,160 C940,150 990,210 1070,222 C1160,236 1230,180 1310,200 C1370,215 1410,255 1440,250 L1440,380 L0,380 Z"
+            fill="url(#islandFill)" stroke="rgba(226,178,58,0.18)" stroke-width="1.5"/>
+    <path d="M210,250 q40,-22 80,-8" fill="none" stroke="rgba(245,239,227,0.10)" stroke-width="1"/>
+    <path d="M520,224 q60,-30 120,-6" fill="none" stroke="rgba(245,239,227,0.10)" stroke-width="1"/>
+    <path d="M880,178 q70,-28 130,-2" fill="none" stroke="rgba(245,239,227,0.10)" stroke-width="1"/>
+  </svg>
+
+  <div class="container-x relative">
+    <div class="max-w-4xl">
+      <p class="font-mono text-xs md:text-[0.78rem] uppercase tracking-[0.28em] text-gold mb-6 fade-up">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-gold align-middle mr-2"></span>
+        A Hawai‘i 501(c)(3) · Est. 2025
+      </p>
+
+      <h1 class="font-display font-medium text-display-lg md:text-display-xl leading-[0.95] tracking-tight fade-up"
+          style="text-wrap: balance; animation-delay: 60ms;">
+        For the people<br/>
+        <span class="italic text-gold" style="font-variation-settings: 'opsz' 144;">who feed</span>
+        the islands.
+      </h1>
+
+      <p class="mt-7 max-w-2xl text-lg md:text-xl text-cream/80 leading-relaxed fade-up" style="animation-delay: 140ms;">
+        The Hawaii Mobile Food Foundation supports the food trucks and mobile vendors who carry
+        Hawai‘i’s street-food culture forward — with permits help, training, advocacy, and the
+        rallies that bring the whole community to the curb.
+      </p>
+
+      <div class="mt-10 fade-up" style="animation-delay: 220ms;">
+        <DualCTA size="lg" />
+      </div>
+
+      <div class="mt-12 fade-up" style="animation-delay: 320ms;">
+        <OleloPhrase haw="ʻAʻohe hana nui ke alu ʻia" en="No task is too big when done together." />
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute left-1/2 -translate-x-1/2 bottom-6 text-cream/45 text-[0.7rem] font-mono uppercase tracking-[0.25em] flex flex-col items-center gap-2">
+    <span>Scroll</span>
+    <span class="block h-6 w-px bg-cream/40 animate-[fade-up_2s_ease-in-out_infinite_alternate]"></span>
+  </div>
+</section>

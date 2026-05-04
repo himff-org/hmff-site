@@ -1,0 +1,106 @@
+---
+const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_VENDOR ?? "";
+const action = formspreeEndpoint || "mailto:hello@hawaiimobilefoodfoundation.org";
+const method = formspreeEndpoint ? "POST" : "post";
+---
+<section id="vendors" class="section bg-ink text-cream relative overflow-hidden scroll-mt-20">
+  <div class="absolute inset-0 -z-10 topo opacity-50"></div>
+  <div aria-hidden="true"
+       class="pointer-events-none absolute -left-32 top-1/4 h-80 w-80 rounded-full blur-3xl"
+       style="background: radial-gradient(circle, rgba(47,93,58,0.4), transparent 65%);"></div>
+
+  <div class="container-x grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-5">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-gold mb-4">For vendors</p>
+      <h2 class="text-display-md md:text-display-lg leading-[1.05]" style="text-wrap: balance;">
+        Run a truck?<br/>
+        <span class="italic text-ulu" style="color: #6B9F76;">We have your back.</span>
+      </h2>
+      <p class="mt-6 text-cream/80 text-lg leading-relaxed max-w-md">
+        Tell us where you’re at — a permit you’re stuck on, training you need, signage that’d help —
+        and we’ll send back a Welcome Kit and a real human who can help.
+      </p>
+
+      <ul class="mt-8 space-y-3 text-sm text-cream/85">
+        {[
+          "Permit-paperwork help (DOH + County Peddler’s Licence)",
+          "ServSafe training voucher",
+          "Branded QR signage for your window",
+          "Access to quarterly rallies",
+          "Membership in our vendor network",
+        ].map((b) => (
+          <li class="flex gap-3 items-start">
+            <span aria-hidden="true" class="mt-[7px] h-1.5 w-1.5 rounded-full bg-gold shrink-0"></span>
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <form class="lg:col-span-7 bg-cream text-ink rounded-3xl p-6 md:p-8 shadow-2xl shadow-ink/40"
+          action={action} method={method}>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="block">
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Your name</span>
+          <input required name="name" type="text" autocomplete="name"
+                 class="w-full px-4 py-3 rounded-xl border border-ink/15 bg-white focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
+        </label>
+        <label class="block">
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Truck / business</span>
+          <input required name="business" type="text"
+                 class="w-full px-4 py-3 rounded-xl border border-ink/15 bg-white focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
+        </label>
+        <label class="block">
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Email</span>
+          <input required name="email" type="email" autocomplete="email"
+                 class="w-full px-4 py-3 rounded-xl border border-ink/15 bg-white focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
+        </label>
+        <label class="block">
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Island</span>
+          <select required name="island"
+                  class="w-full px-4 py-3 rounded-xl border border-ink/15 bg-white focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition">
+            <option value="">Choose…</option>
+            <option>O‘ahu</option>
+            <option>Hawai‘i (Big Island)</option>
+            <option>Maui</option>
+            <option>Kaua‘i</option>
+            <option>Moloka‘i</option>
+            <option>Lāna‘i</option>
+          </select>
+        </label>
+        <label class="block sm:col-span-2">
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Permit status</span>
+          <select required name="permit_status"
+                  class="w-full px-4 py-3 rounded-xl border border-ink/15 bg-white focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition">
+            <option value="">Choose…</option>
+            <option>Fully permitted and operating</option>
+            <option>Permitted, currently inactive</option>
+            <option>In progress</option>
+            <option>Need help getting started</option>
+          </select>
+        </label>
+        <label class="block sm:col-span-2">
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">What would help most?</span>
+          <textarea name="needs" rows="4"
+                    class="w-full px-4 py-3 rounded-xl border border-ink/15 bg-white focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition resize-y"
+                    placeholder="A permit you’re stuck on, an event you’d join, training you’d like…"></textarea>
+        </label>
+      </div>
+
+      <!-- honeypot -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
+      <input type="hidden" name="_subject" value="HMFF: New vendor application" />
+      <input type="hidden" name="_next" value="/mahalo" />
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+        <p class="text-xs text-stone">
+          We’ll respond within a week. Your info stays with HMFF.
+        </p>
+        <button type="submit" class="btn btn-vendor">
+          Apply for the Welcome Kit
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

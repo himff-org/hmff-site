@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import ProgramCard from "./ProgramCard.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const programs = (await getCollection("programs")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+<section id="programs" class="section bg-cream-deep/40">
+  <div class="container-x">
+    <SectionHeading eyebrow="What we do">
+      Four programs.<br/>
+      <span class="italic text-ulu">One island chain</span> worth feeding.
+    </SectionHeading>
+
+    <p class="mt-6 max-w-2xl text-stone text-lg">
+      Each program is a small, concrete commitment to vendors and the communities they
+      serve — funded by donations, sponsorships, and grants.
+    </p>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      {programs.map((p) => (
+        <ProgramCard
+          title={p.data.title}
+          body={p.data.body}
+          cta={p.data.cta}
+          audience={p.data.audience}
+          icon={p.data.icon}
+          meta={p.data.meta}
+        />
+      ))}
+    </div>
+  </div>
+</section>

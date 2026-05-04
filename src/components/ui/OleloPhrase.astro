@@ -1,0 +1,18 @@
+---
+interface Props {
+  haw: string;
+  en: string;
+}
+const { haw, en } = Astro.props;
+---
+<details class="olelo group inline-block">
+  <summary class="select-none">
+    <span lang="haw" class="olelo">“{haw}”</span>
+    <span class="ml-2 align-middle font-mono text-[0.62rem] uppercase tracking-[0.2em] text-stone group-open:hidden">
+      tap for translation
+    </span>
+  </summary>
+  <span class="ml-2 align-middle font-sans text-sm not-italic text-stone hidden group-open:inline">
+    — {en}
+  </span>
+</details>

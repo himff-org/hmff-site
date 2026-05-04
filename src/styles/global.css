@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource/dm-mono/400.css";
+@import "@fontsource/dm-mono/500.css";
+
+@theme {
+  --color-ink: #0E1B2C;
+  --color-ink-soft: #1A2A3F;
+  --color-cream: #F5EFE3;
+  --color-cream-deep: #ECE3D0;
+  --color-ulu: #2F5D3A;
+  --color-ulu-light: #4A7A55;
+  --color-lava: #D9472B;
+  --color-lava-light: #E66B52;
+  --color-gold: #E2B23A;
+  --color-stone: #5B6470;
+  --color-stone-light: #8C95A0;
+
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", monospace;
+
+  --text-display-xl: clamp(3rem, 7vw, 6rem);
+  --text-display-lg: clamp(2.25rem, 5vw, 4.25rem);
+  --text-display-md: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--color-cream);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-variation-settings: "opsz" 96;
+  }
+
+  a {
+    color: var(--color-ulu);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  a:hover {
+    color: var(--color-lava);
+  }
+
+  /* Subtle paper texture on cream sections */
+  .paper-noise {
+    background-image:
+      radial-gradient(rgba(14, 27, 44, 0.025) 1px, transparent 1px),
+      radial-gradient(rgba(14, 27, 44, 0.018) 1px, transparent 1px);
+    background-size: 4px 4px, 7px 7px;
+    background-position: 0 0, 2px 3px;
+  }
+
+  /* Topographic line motif for dark sections */
+  .topo {
+    background-image:
+      repeating-radial-gradient(
+        circle at 30% 70%,
+        transparent 0,
+        transparent 38px,
+        rgba(226, 178, 58, 0.04) 39px,
+        transparent 40px
+      ),
+      repeating-radial-gradient(
+        circle at 80% 20%,
+        transparent 0,
+        transparent 28px,
+        rgba(217, 71, 43, 0.05) 29px,
+        transparent 30px
+      );
+  }
+
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.6rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    will-change: transform;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn-vendor {
+    background: var(--color-ulu);
+    color: var(--color-cream);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 6px 18px -8px rgba(47, 93, 58, 0.6);
+  }
+
+  .btn-vendor:hover {
+    background: var(--color-ulu-light);
+    color: var(--color-cream);
+  }
+
+  .btn-donor {
+    background: var(--color-lava);
+    color: var(--color-cream);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 6px 18px -8px rgba(217, 71, 43, 0.6);
+  }
+
+  .btn-donor:hover {
+    background: var(--color-lava-light);
+    color: var(--color-cream);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 20%, transparent);
+  }
+
+  .btn-ghost:hover {
+    background: color-mix(in srgb, var(--color-ink) 5%, transparent);
+    color: var(--color-ink);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+    background: color-mix(in srgb, currentColor 6%, transparent);
+  }
+
+  .section {
+    padding: clamp(4rem, 9vw, 7.5rem) 0;
+  }
+
+  .container-x {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .rule {
+    height: 1px;
+    background: color-mix(in srgb, currentColor 15%, transparent);
+    border: 0;
+  }
+
+  .olelo {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-gold);
+    letter-spacing: 0;
+  }
+
+  .olelo summary {
+    display: inline;
+  }
+}
+
+@keyframes route-draw {
+  from { stroke-dashoffset: 1200; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease-out both;
+}

@@ -1,0 +1,24 @@
+---
+interface Props {
+  eyebrow?: string;
+  align?: "left" | "center";
+  tone?: "ink" | "cream";
+  id?: string;
+}
+
+const { eyebrow, align = "left", tone = "ink", id } = Astro.props;
+
+const eyebrowColor = tone === "cream" ? "text-gold" : "text-lava";
+const alignment = align === "center" ? "text-center mx-auto" : "text-left";
+---
+<header class={`max-w-3xl ${alignment}`} id={id}>
+  {eyebrow && (
+    <p class={`mb-4 font-mono text-xs tracking-[0.2em] uppercase ${eyebrowColor}`}>
+      {eyebrow}
+    </p>
+  )}
+  <h2 class="text-display-md md:text-display-lg" style="text-wrap: balance;">
+    <slot />
+  </h2>
+  <slot name="sub" />
+</header>

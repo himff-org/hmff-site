@@ -1,0 +1,44 @@
+---
+import OleloPhrase from "./ui/OleloPhrase.astro";
+---
+<section class="section paper-noise">
+  <div class="container-x grid md:grid-cols-12 gap-10 items-start">
+    <div class="md:col-span-3">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-lava">
+        Mission
+      </p>
+    </div>
+    <div class="md:col-span-9">
+      <p class="font-display text-display-md md:text-display-lg leading-[1.05] text-ink"
+         style="text-wrap: balance; font-variation-settings: 'opsz' 96;">
+        We exist to make it
+        <span class="italic text-ulu">easier and fairer</span> to run a food truck in Hawai‘i —
+        and to make sure every island gets the food, the gathering, and the
+        <em class="italic text-lava not-italic-children">mākaukau</em>
+        <span class="sr-only">(readiness, preparation)</span>
+        that comes with it.
+      </p>
+
+      <hr class="rule my-10" />
+
+      <div class="grid sm:grid-cols-3 gap-6 text-sm md:text-base text-stone">
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/80 mb-2">For the vendors</p>
+          <p>Permits, training, signage, and a network. Less time on paperwork; more time at the window.</p>
+        </div>
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/80 mb-2">For the public</p>
+          <p>Rallies, mini-docs, and a discovery app so finding the truck you love is one tap, not one rumor.</p>
+        </div>
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/80 mb-2">For Hawai‘i</p>
+          <p>Local money stays local. Street food keeps its place as part of who we are.</p>
+        </div>
+      </div>
+
+      <p class="mt-10 text-sm">
+        <OleloPhrase haw="E ʻai i ka mea i loaʻa" en="Eat what you have — be grateful for the food in front of you." />
+      </p>
+    </div>
+  </div>
+</section>

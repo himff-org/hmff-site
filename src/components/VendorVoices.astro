@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const voices = (await getCollection("voices")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+<section class="section paper-noise">
+  <div class="container-x">
+    <SectionHeading eyebrow="Vendor voices">
+      The trucks tell us<br/>
+      <span class="italic text-lava">where to push.</span>
+    </SectionHeading>
+    <p class="mt-6 max-w-2xl text-stone text-lg">
+      Every program here started in a vendor interview. These are a few of the things we keep
+      hearing — quotes used with permission. Names withheld where requested.
+    </p>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {voices.map((v) => (
+        <figure class="relative bg-cream-deep/70 border border-ink/8 rounded-3xl p-7 md:p-8 flex flex-col">
+          <span aria-hidden="true"
+                class="absolute -top-3 left-6 text-7xl leading-none font-display italic text-gold/80 select-none">“</span>
+          <blockquote class="font-display text-xl md:text-2xl leading-snug text-ink mt-4 mb-6"
+                      style="font-variation-settings: 'opsz' 60; text-wrap: balance;">
+            {v.data.quote}
+          </blockquote>
+          <figcaption class="mt-auto pt-4 border-t border-ink/10">
+            <p class="font-medium text-sm text-ink">{v.data.attribution}</p>
+            <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone mt-1">
+              {v.data.island}{v.data.truck && ` · ${v.data.truck}`}
+            </p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

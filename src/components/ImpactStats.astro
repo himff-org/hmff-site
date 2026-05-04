@@ -1,0 +1,39 @@
+---
+const stats = [
+  { value: "9", suffix: "+", label: "Vendor interviews logged", note: "and counting" },
+  { value: "300", suffix: "+", label: "Licensed mobile vendors statewide", note: "our active universe" },
+  { value: "4", suffix: "", label: "Quarterly rallies planned for Year One", note: "Honolulu, Hilo, Kona, Kahului" },
+  { value: "1", suffix: "", label: "Foundation, working for all of them", note: "501(c)(3) confirmed" },
+];
+---
+<section class="section bg-ink text-cream relative overflow-hidden">
+  <div class="absolute inset-0 -z-10 topo opacity-60"></div>
+
+  <div class="container-x">
+    <div class="max-w-3xl">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-gold mb-4">By the numbers</p>
+      <h2 class="text-display-md md:text-display-lg leading-[1.05]"
+          style="text-wrap: balance;">
+        A small foundation,<br/>
+        <span class="italic text-gold">a statewide</span> footprint.
+      </h2>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {stats.map((s, i) => (
+        <div class="border-t border-cream/15 pt-6">
+          <p class="font-display text-5xl md:text-6xl leading-none tracking-tight font-medium"
+             style="font-variation-settings: 'opsz' 144;">
+            <span class="text-cream">{s.value}</span><span class="text-lava">{s.suffix}</span>
+          </p>
+          <p class="mt-3 text-cream text-base font-medium">{s.label}</p>
+          <p class="mt-1 text-cream/55 text-xs font-mono uppercase tracking-[0.18em]">{s.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-10 text-cream/60 text-xs font-mono uppercase tracking-[0.18em]">
+      Numbers refresh as the work does.
+    </p>
+  </div>
+</section>

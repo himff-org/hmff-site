@@ -1,0 +1,16 @@
+---
+interface Props {
+  tone?: "ink" | "cream" | "ulu" | "lava" | "gold";
+}
+const { tone = "ink" } = Astro.props;
+const toneClass = {
+  ink: "text-ink",
+  cream: "text-cream",
+  ulu: "text-ulu",
+  lava: "text-lava",
+  gold: "text-gold",
+}[tone];
+---
+<span class={`pill ${toneClass}`}>
+  <slot />
+</span>

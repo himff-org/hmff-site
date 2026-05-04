@@ -1,0 +1,18 @@
+---
+interface Props {
+  size?: "md" | "lg";
+  label?: string;
+}
+const { size = "md", label = "Donate" } = Astro.props;
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_DONATE_URL ?? "#support";
+const sizeClass = size === "lg" ? "!py-4 !px-7 text-base" : "";
+---
+<a href={stripeUrl} target={stripeUrl.startsWith("http") ? "_blank" : undefined}
+   rel={stripeUrl.startsWith("http") ? "noopener" : undefined}
+   class={`btn btn-donor ${sizeClass}`}>
+  <svg viewBox="0 0 20 20" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M10 17s-6-4-6-9a3 3 0 0 1 6-1 3 3 0 0 1 6 1c0 5-6 9-6 9z" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  {label}
+  <span aria-hidden="true">→</span>
+</a>
