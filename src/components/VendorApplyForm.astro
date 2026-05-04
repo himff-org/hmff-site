@@ -3,104 +3,92 @@ const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_VENDOR ?? "";
 const action = formspreeEndpoint || "mailto:hello@hawaiimobilefoodfoundation.org";
 const method = formspreeEndpoint ? "POST" : "post";
 ---
-<section id="vendors" class="section bg-paper scroll-mt-20 relative overflow-hidden">
-  <div aria-hidden="true"
-       class="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full blur-3xl opacity-50"
-       style="background: radial-gradient(circle, rgba(47,93,58,0.20), transparent 65%);"></div>
-  <div aria-hidden="true"
-       class="pointer-events-none absolute -right-32 bottom-1/4 h-80 w-80 rounded-full blur-3xl opacity-50"
-       style="background: radial-gradient(circle, rgba(244,165,130,0.30), transparent 65%);"></div>
+<section id="vendors" class="section scroll-mt-20">
+  <div class="container-x">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
 
-  <div class="container-x grid lg:grid-cols-12 gap-12 items-start relative">
-    <div class="lg:col-span-5">
-      <p class="font-mono text-xs uppercase tracking-[0.22em] text-ulu mb-4">For vendors</p>
-      <h2 class="text-display-md md:text-display-lg leading-[1.05] text-ink" style="text-wrap: balance;">
-        Tell us about<br/>
-        <span class="italic text-ulu">your truck.</span>
-      </h2>
-      <p class="mt-6 text-stone text-lg leading-relaxed max-w-md">
-        Whether you want to be on the show, get into the next course cohort, or just
-        want to talk to someone who gets what you’re dealing with — leave a note. We
-        read everything; we reply within a week.
-      </p>
-
-      <ul class="mt-8 space-y-3 text-sm text-ink/85">
-        {[
-          "Long-form podcast: 90-minute conversation about your truck and you",
-          "Marketing course: pilot cohort opens soon — sign up for updates",
-          "Advocacy: tell us a regulator headache and we'll add it to the list",
-          "Or just say hi — we want to know who's out there",
-        ].map((b) => (
-          <li class="flex gap-3 items-start">
-            <span aria-hidden="true" class="mt-1.5 h-2 w-2 rounded-full bg-ulu shrink-0"></span>
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <form class="lg:col-span-7 surface p-6 md:p-9" action={action} method={method}>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <label class="block">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Your name</span>
-          <input required name="name" type="text" autocomplete="name"
-                 class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
-        </label>
-        <label class="block">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Truck / business</span>
-          <input name="business" type="text"
-                 class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
-        </label>
-        <label class="block">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Email</span>
-          <input required name="email" type="email" autocomplete="email"
-                 class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
-        </label>
-        <label class="block">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Island</span>
-          <select required name="island"
-                  class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition">
-            <option value="">Choose…</option>
-            <option>O‘ahu</option>
-            <option>Hawai‘i (Big Island)</option>
-            <option>Maui</option>
-            <option>Kaua‘i</option>
-            <option>Moloka‘i</option>
-            <option>Lāna‘i</option>
-          </select>
-        </label>
-        <label class="block sm:col-span-2">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">What brings you here?</span>
-          <select required name="intent"
-                  class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition">
-            <option value="">Choose…</option>
-            <option>I want to be on the podcast</option>
-            <option>I want into the next marketing course</option>
-            <option>I have an advocacy / regulator issue</option>
-            <option>I just want to talk</option>
-          </select>
-        </label>
-        <label class="block sm:col-span-2">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Anything else? (Optional)</span>
-          <textarea name="notes" rows="4"
-                    class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition resize-y"
-                    placeholder="The story behind your truck, what you'd want out of a course, the rule that's killing you…"></textarea>
-        </label>
-      </div>
-
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
-      <input type="hidden" name="_subject" value="HMFF: vendor inquiry" />
-      <input type="hidden" name="_next" value="/mahalo" />
-
-      <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
-        <p class="text-xs text-stone">
-          We’ll respond within a week. Your info stays with HMFF.
+      <div class="lg:col-span-5">
+        <span class="eyebrow">For vendors</span>
+        <h2 class="h2-display" style="margin-bottom: 24px;">
+          Tell us about <span class="accent-script" style="color: var(--color-brand-red);">your truck.</span>
+        </h2>
+        <p class="font-sans text-[18px] leading-[1.55] mb-8" style="color: var(--color-ink-soft);">
+          Whether you want to be on the show, get into the next course cohort, or just
+          want to talk to someone who gets what you’re dealing with — leave a note. We
+          read everything and reply within a week.
         </p>
-        <button type="submit" class="btn btn-vendor">
-          Send it
-          <span aria-hidden="true">→</span>
-        </button>
+
+        <ul class="list-none p-0 m-0 flex flex-col gap-3">
+          {[
+            "Long-form podcast: 90-minute conversation about your truck and you",
+            "Marketing course: pilot cohort opens soon — sign up for updates",
+            "Advocacy: tell us a regulator headache and we'll add it to the list",
+            "Or just say hi — we want to know who's out there",
+          ].map((t) => (
+            <li class="flex gap-3 items-start font-sans text-[15px] leading-[1.55]" style="color: var(--color-ink);">
+              <span aria-hidden="true" class="mt-2 inline-block w-2 h-2 rounded-full shrink-0" style="background: var(--color-brand-red);"></span>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-    </form>
+
+      <form class="lg:col-span-7 card-pillow p-7 md:p-9" action={action} method={method}>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="form-label">Your name</span>
+            <input required name="name" type="text" autocomplete="name" class="form-input" />
+          </label>
+          <label class="block">
+            <span class="form-label">Truck / business</span>
+            <input name="business" type="text" class="form-input" />
+          </label>
+          <label class="block">
+            <span class="form-label">Email</span>
+            <input required name="email" type="email" autocomplete="email" class="form-input" />
+          </label>
+          <label class="block">
+            <span class="form-label">Island</span>
+            <select required name="island" class="form-select">
+              <option value="">Choose…</option>
+              <option>O‘ahu</option>
+              <option>Hawai‘i (Big Island)</option>
+              <option>Maui</option>
+              <option>Kaua‘i</option>
+              <option>Moloka‘i</option>
+              <option>Lāna‘i</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="form-label">What brings you here?</span>
+            <select required name="intent" class="form-select">
+              <option value="">Choose…</option>
+              <option>I want to be on the podcast</option>
+              <option>I want into the next marketing course</option>
+              <option>I have an advocacy / regulator issue</option>
+              <option>I just want to talk</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="form-label">Anything else? (Optional)</span>
+            <textarea name="notes" rows="4" class="form-textarea"
+                      placeholder="The story behind your truck, what you'd want out of a course, the rule that's killing you…"></textarea>
+          </label>
+        </div>
+
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
+        <input type="hidden" name="_subject" value="HMFF: vendor inquiry" />
+        <input type="hidden" name="_next" value="/mahalo" />
+
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+          <p class="font-sans text-[12px]" style="color: var(--color-ink-faint);">
+            We’ll respond within a week. Your info stays with HMFF.
+          </p>
+          <button type="submit" class="btn btn-primary">
+            Send it <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>

@@ -1,51 +1,43 @@
 ---
-import OleloPhrase from "./ui/OleloPhrase.astro";
-import HawaiianIslands from "./HawaiianIslands.astro";
+// Hero: full-bleed warm photograph + Sigmar headline + protection gradient
+const heroImg = "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1920&q=80&auto=format&fit=crop";
 ---
-<section id="top" class="relative isolate overflow-hidden hero-halo pt-28 md:pt-36 pb-16 md:pb-24">
-  <div aria-hidden="true" class="absolute inset-0 -z-10 paper-noise opacity-60"></div>
+<section id="top" class="relative isolate overflow-hidden flex items-end" style="min-height: 92svh;">
+  <img
+    src={heroImg}
+    alt="A Hawai‘i food truck at golden hour — light from the order window, hands working inside."
+    class="absolute inset-0 w-full h-full object-cover -z-20"
+    style="filter: saturate(1.05) contrast(1.02) brightness(0.84);"
+  />
+  <!-- protection gradient: top + bottom darken so headlines pop -->
+  <div aria-hidden="true" class="absolute inset-0 -z-10"
+       style="background: linear-gradient(180deg, rgba(42,26,14,0.55) 0%, rgba(42,26,14,0.10) 30%, rgba(42,26,14,0.55) 72%, rgba(42,26,14,0.92) 100%), radial-gradient(120% 80% at 20% 100%, rgba(42,26,14,0.55) 0%, rgba(42,26,14,0) 60%);"></div>
 
-  <div class="container-x relative">
-    <div class="max-w-4xl">
-      <p class="font-mono text-xs md:text-[0.78rem] uppercase tracking-[0.28em] text-lava mb-6 fade-up">
-        <span class="inline-block h-1.5 w-1.5 rounded-full bg-lava align-middle mr-2"></span>
-        A Hawai‘i 501(c)(3) · Papaikou, Hawai‘i Island
-      </p>
+  <div class="container-x py-24 md:py-28 pt-36 md:pt-40 relative z-10 text-cream">
+    <p class="eyebrow eyebrow-light fade-up">Hawai‘i Mobile Food Foundation · Papaikou</p>
 
-      <h1 class="font-display font-medium text-display-lg md:text-display-xl leading-[0.95] tracking-tight text-ink fade-up"
-          style="text-wrap: balance; animation-delay: 60ms;">
-        There’s a person<br/>
-        <span class="italic text-lava" style="font-variation-settings: 'opsz' 144;">at the window.</span>
-        We tell their story.
-      </h1>
+    <h1 class="display-xl mb-6 max-w-[18ch] fade-up"
+        style="text-shadow: 0 2px 0 rgba(42,26,14,0.35), 0 8px 28px rgba(42,26,14,0.55); animation-delay: 60ms;">
+      The food is theirs.<br/>
+      <span style="color: var(--color-brand-yellow);">The story is ours.</span>
+    </h1>
 
-      <p class="mt-7 max-w-2xl text-lg md:text-xl text-stone leading-relaxed fade-up" style="animation-delay: 140ms;">
-        The Hawaii Mobile Food Foundation is a long-form podcast, a marketing curriculum
-        being built for vendors, and the small advocacy work that goes with both —
-        in service of the people who feed Hawai‘i out of a window.
-      </p>
+    <p class="mb-8 max-w-[44ch] text-[19px] md:text-[20px] leading-[1.55] font-medium text-cream fade-up"
+       style="text-shadow: 0 1px 12px rgba(42,26,14,0.65); animation-delay: 140ms;">
+      We sit with Hawai‘i’s food-truck operators for ninety minutes — the food, the
+      reasons, the rest of it. A long-form podcast, a marketing course in development,
+      and the unglamorous work that goes with both.
+    </p>
 
-      <div class="mt-10 flex flex-wrap gap-3 fade-up" style="animation-delay: 220ms;">
-        <a href="#podcast" class="btn btn-donor !py-4 !px-7 text-base">
-          <svg viewBox="0 0 20 20" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="10" cy="10" r="8" stroke-linecap="round"/>
-            <path d="M8 7l5 3-5 3z" fill="currentColor"/>
-          </svg>
-          Listen to the podcast
-          <span aria-hidden="true">→</span>
-        </a>
-        <a href="#vendors" class="btn btn-ghost !py-4 !px-7 text-base">
-          I run a truck
-        </a>
-      </div>
-
-      <div class="mt-10 fade-up" style="animation-delay: 320ms;">
-        <OleloPhrase haw="ʻAʻohe hana nui ke alu ʻia" en="No task is too big when done together." />
-      </div>
-    </div>
-
-    <div class="mt-16 md:mt-20 fade-up" style="animation-delay: 420ms;">
-      <HawaiianIslands class="w-full max-w-5xl mx-auto h-auto float-slow" />
+    <div class="flex flex-wrap gap-3 fade-up" style="animation-delay: 220ms;">
+      <a href="#podcast" class="btn btn-primary">
+        <svg viewBox="0 0 20 20" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="10" cy="10" r="8"/>
+          <path d="M8 7l5 3-5 3z" fill="currentColor"/>
+        </svg>
+        Listen to the podcast
+      </a>
+      <a href="#vendors" class="btn btn-ghost-light">I run a truck</a>
     </div>
   </div>
 </section>

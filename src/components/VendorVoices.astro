@@ -1,35 +1,33 @@
 ---
 import { getCollection } from "astro:content";
-import SectionHeading from "./ui/SectionHeading.astro";
-
-const voices = (await getCollection("voices")).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const voices = (await getCollection("voices")).sort((a, b) => a.data.order - b.data.order);
 ---
-<section class="section bg-mist">
+<section class="section section-soft">
   <div class="container-x">
-    <SectionHeading eyebrow="What we’re hearing">
-      The kind of thing<br/>
-      <span class="italic text-lava">you only get</span> if you sit down.
-    </SectionHeading>
-    <p class="mt-6 max-w-2xl text-stone text-lg">
-      Things vendors have told us off-cuff — the lines you don’t hear in a food review.
-      Quotes used with permission. Names withheld where requested. The full versions
-      land in the podcast.
-    </p>
+    <div class="text-center max-w-[720px] mx-auto mb-14">
+      <span class="eyebrow">What we’re hearing</span>
+      <h2 class="h2-display" style="margin-bottom: 16px;">
+        The kind of thing you only get if you sit down.
+      </h2>
+      <p class="font-sans text-[18px] leading-[1.55]" style="color: var(--color-ink-soft);">
+        Things vendors have told us off-cuff — the lines you don’t hear in a food review.
+        Used with permission. Names withheld where requested. The full versions land in
+        the podcast.
+      </p>
+    </div>
 
-    <div class="mt-14 grid gap-6 md:grid-cols-3">
+    <div class="grid md:grid-cols-3 gap-6">
       {voices.map((v) => (
-        <figure class="surface relative p-7 md:p-8 flex flex-col">
+        <figure class="card-soft p-7 md:p-8 flex flex-col bg-paper relative">
           <span aria-hidden="true"
-                class="absolute -top-3 left-6 text-7xl leading-none font-display italic text-gold/90 select-none">“</span>
-          <blockquote class="font-display text-xl md:text-2xl leading-snug text-ink mt-4 mb-6"
-                      style="font-variation-settings: 'opsz' 60; text-wrap: balance;">
+                class="accent-script absolute -top-3 left-6 text-[64px] leading-none select-none"
+                style="color: var(--color-brand-yellow); text-shadow: 2px 2px 0 var(--color-ink);">“</span>
+          <blockquote class="font-sans text-[19px] leading-[1.4] font-medium mt-4 mb-5" style="color: var(--color-ink); text-wrap: balance;">
             {v.data.quote}
           </blockquote>
-          <figcaption class="mt-auto pt-4 border-t border-ink/8">
-            <p class="font-medium text-sm text-ink">{v.data.attribution}</p>
-            <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone mt-1">
+          <figcaption class="mt-auto pt-4 border-t border-ink/10">
+            <p class="font-sans font-bold text-[14px]" style="color: var(--color-ink);">{v.data.attribution}</p>
+            <p class="font-sans text-[11px] uppercase tracking-[0.12em] mt-1" style="color: var(--color-ink-faint);">
               {v.data.island}{v.data.truck && ` · ${v.data.truck}`}
             </p>
           </figcaption>

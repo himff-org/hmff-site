@@ -1,40 +1,34 @@
 ---
+import Logo from "./Logo.astro";
+
 const links = [
   { href: "#podcast", label: "Podcast" },
   { href: "#programs", label: "Programs" },
+  { href: "#vendors", label: "Vendors" },
   { href: "#about", label: "About" },
 ];
 ---
-<nav id="site-nav" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
-  <div class="container-x flex items-center justify-between py-4 md:py-5">
-    <a href="#top" class="group flex items-center gap-2.5 no-underline" aria-label="Hawaii Mobile Food Foundation — home">
-      <svg viewBox="0 0 64 64" class="h-9 w-9 transition-transform group-hover:rotate-3" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="#FBF8F1"/>
-        <path d="M 8 38 Q 18 24 32 32 T 56 28" stroke="#D9472B" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <circle cx="14" cy="38" r="3" fill="#2F5D3A"/>
-        <circle cx="32" cy="32" r="3" fill="#E2B23A"/>
-        <circle cx="50" cy="28" r="3.6" fill="#D9472B"/>
-      </svg>
-      <span class="font-display text-base md:text-lg leading-none tracking-tight">
-        <span class="block font-medium text-ink">Hawaii Mobile Food</span>
-        <span class="block text-stone text-[0.7rem] md:text-xs uppercase tracking-[0.2em] font-mono">Foundation</span>
-      </span>
+<nav id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+  <div class="container-x flex items-center gap-6 py-4">
+    <a href="#top" class="no-underline" aria-label="Hawai‘i Mobile Food Foundation — home">
+      <Logo size={32} />
     </a>
 
-    <div class="hidden md:flex items-center gap-7">
+    <ul class="hidden md:flex items-center gap-7 list-none m-0 p-0 ml-6">
       {links.map((l) => (
-        <a href={l.href} class="text-sm no-underline text-ink/75 hover:text-ink transition-colors">
-          {l.label}
-        </a>
+        <li>
+          <a href={l.href}
+             class="font-sans font-medium text-[15px] text-ink no-underline hover:no-underline border-b-2 border-transparent hover:border-brand-red pb-1 transition-colors">
+            {l.label}
+          </a>
+        </li>
       ))}
-      <a href="#support" class="btn btn-ghost !py-2 !px-4 text-sm">
-        Donate
-      </a>
-    </div>
+    </ul>
 
-    <a href="#vendors" class="md:hidden btn btn-vendor !py-2 !px-4 text-xs">
-      Get involved
-    </a>
+    <div class="ml-auto flex items-center gap-2.5">
+      <a href="#vendors" class="hidden sm:inline-flex btn btn-utility">Vendor sign in</a>
+      <a href="#support" class="btn btn-primary">Donate</a>
+    </div>
   </div>
 </nav>
 
@@ -42,11 +36,18 @@ const links = [
   const nav = document.getElementById("site-nav");
   if (nav) {
     const update = () => {
-      const scrolled = window.scrollY > 30;
-      nav.classList.toggle("backdrop-blur-md", scrolled);
-      nav.classList.toggle("bg-mist/85", scrolled);
-      nav.classList.toggle("border-b", scrolled);
-      nav.classList.toggle("border-ink/8", scrolled);
+      const scrolled = window.scrollY > 24;
+      if (scrolled) {
+        nav.style.background = "rgba(255, 247, 232, 0.92)";
+        nav.style.backdropFilter = "blur(12px)";
+        (nav.style as any).webkitBackdropFilter = "blur(12px)";
+        nav.classList.add("border-ink/10");
+      } else {
+        nav.style.background = "transparent";
+        nav.style.backdropFilter = "none";
+        (nav.style as any).webkitBackdropFilter = "none";
+        nav.classList.remove("border-ink/10");
+      }
     };
     update();
     window.addEventListener("scroll", update, { passive: true });

@@ -1,0 +1,19 @@
+---
+const stats = [
+  { num: "2", label: "Episodes recorded · more on the way" },
+  { num: "6", label: "Islands tracked" },
+  { num: "1", label: "Foundation, working for the rest" },
+];
+---
+<section class="section-soft py-16">
+  <div class="container-x">
+    <div class="grid sm:grid-cols-3 gap-8">
+      {stats.map((s) => (
+        <div class="text-center">
+          <div class="display-lg" style="color: var(--color-brand-red); margin-bottom: 8px;">{s.num}</div>
+          <div class="font-sans font-medium text-[15px] md:text-base" style="color: var(--color-ink-soft);">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

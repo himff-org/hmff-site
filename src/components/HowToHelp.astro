@@ -1,51 +1,61 @@
 ---
 import DonateButton from "./DonateButton.astro";
+
+const tiers = [
+  { amt: "$50",    label: "An hour of post-production on a podcast episode" },
+  { amt: "$250",   label: "A vendor’s seat in the first marketing course cohort" },
+  { amt: "$1,000", label: "A full episode produced, end-to-end" },
+];
 ---
-<section id="support" class="section bg-sand scroll-mt-20 relative overflow-hidden">
-  <div aria-hidden="true" class="absolute inset-0 -z-10 paper-noise opacity-50"></div>
+<section id="support" class="section relative overflow-hidden" style="background: var(--color-brand-yellow); padding: 80px 0;">
+  <span aria-hidden="true"
+        class="absolute rounded-full"
+        style="left: -80px; top: -80px; width: 240px; height: 240px; background: rgba(215, 38, 28, 0.10);"></span>
+  <span aria-hidden="true"
+        class="absolute rounded-full"
+        style="right: -100px; bottom: -100px; width: 280px; height: 280px; background: rgba(42, 26, 14, 0.06);"></span>
 
   <div class="container-x relative">
-    <div class="max-w-3xl">
-      <p class="font-mono text-xs uppercase tracking-[0.22em] text-lava mb-4">For funders</p>
-      <h2 class="text-display-md leading-[1.05] text-ink" style="text-wrap: balance;">
-        If you fund work like this,<br/>
-        <span class="italic text-lava">come talk to us.</span>
-      </h2>
-
-      <div class="mt-8 text-stone text-base md:text-lg leading-relaxed space-y-5 max-w-prose">
-        <p>
-          We’re a Hawai‘i 501(c)(3) supporting the people who run mobile food businesses
-          across the islands. Right now that’s a long-form podcast spotlighting their work,
-          a marketing curriculum being built for the next pilot cohort, and ongoing
-          advocacy with state and county regulators on the rules that hit small operators
-          hardest.
-        </p>
-        <p>
-          Where money goes: episode production, course materials and instructor stipends,
-          legal review for the advocacy work, and the basics of running a small foundation
-          out of a PO box on Hawai‘i Island. We publish what we spend.
-        </p>
-        <p class="text-ink">
-          If you fund storytelling, small-business support, or food-system work in
-          Hawai‘i — we’d like to hear from you.
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5">
+        <span class="eyebrow">Make it possible</span>
+        <h2 class="display-lg" style="color: var(--color-ink); margin-bottom: 16px;">
+          Fund a story. <br/>Fund a course seat.
+        </h2>
+        <p class="font-sans text-[17px] leading-[1.55] max-w-[42ch]" style="color: var(--color-ink);">
+          Every dollar goes to vendor-facing work — episode production, course materials,
+          legal review for advocacy. The foundation absorbs operating overhead so you
+          don’t have to. <strong>HMFF is a confirmed 501(c)(3)</strong>; donations are
+          tax-deductible to the fullest extent allowed by law.
         </p>
       </div>
 
-      <div class="mt-10 flex flex-wrap items-center gap-4">
-        <a href="mailto:hello@hawaiimobilefoodfoundation.org?subject=HMFF%20funding%20inquiry"
-           class="btn btn-donor">
-          <svg viewBox="0 0 20 20" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="5" width="14" height="11" rx="2"/>
-            <path d="m3 7 7 5 7-5"/>
-          </svg>
-          hello@hawaiimobilefoodfoundation.org
-        </a>
-        <DonateButton label="Or donate directly" />
+      <div class="lg:col-span-7">
+        <div class="flex flex-col gap-3">
+          {tiers.map((t) => (
+            <a href="#"
+               class="card-soft flex items-baseline gap-5 p-5 md:p-6 no-underline transition-all"
+               style="background: var(--color-paper); border: 2px solid var(--color-ink); border-radius: 16px; box-shadow: none; color: var(--color-ink);">
+              <span class="display-lg shrink-0" style="font-size: 32px; min-width: 110px; color: var(--color-brand-red);">
+                {t.amt}
+              </span>
+              <span class="font-sans text-[15px] md:text-base leading-[1.55] font-medium" style="color: var(--color-ink);">
+                {t.label}
+              </span>
+            </a>
+          ))}
+          <div class="flex flex-wrap gap-3 mt-3">
+            <DonateButton label="Choose your amount" />
+            <a href="mailto:hello@hawaiimobilefoodfoundation.org?subject=HMFF%20funding%20inquiry"
+               class="btn btn-ghost">
+              Grant inquiries
+            </a>
+          </div>
+          <p class="font-sans text-[12px] uppercase tracking-[0.12em] mt-3" style="color: var(--color-ink);">
+            EIN forthcoming · Receipts via Stripe
+          </p>
+        </div>
       </div>
-
-      <p class="mt-6 text-xs font-mono uppercase tracking-[0.18em] text-stone">
-        EIN forthcoming · 501(c)(3) confirmed · Receipts via Stripe
-      </p>
     </div>
   </div>
 </section>

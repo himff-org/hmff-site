@@ -1,35 +1,53 @@
 ---
 import { getCollection } from "astro:content";
-import ProgramCard from "./ProgramCard.astro";
-import SectionHeading from "./ui/SectionHeading.astro";
+const programs = (await getCollection("programs")).sort((a, b) => a.data.order - b.data.order);
 
-const programs = (await getCollection("programs")).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const accentMap: Record<string, { bg: string; fg: string; svg: string }> = {
+  kit: { bg: "color-mix(in oklab, var(--color-brand-red), white 80%)", fg: "var(--color-brand-red)",
+         svg: '<path d="M3 9h18v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"/><path d="M8 9V5a4 4 0 0 1 8 0v4"/><path d="M8 14h8"/>' },
+  advocacy: { bg: "color-mix(in oklab, var(--color-teal), white 78%)", fg: "var(--color-teal)",
+              svg: '<path d="M3 11l9-9 9 9v9a2 2 0 0 1-2 2h-3v-7H8v7H5a2 2 0 0 1-2-2v-9z"/>' },
+  story: { bg: "color-mix(in oklab, var(--color-papaya), white 78%)", fg: "var(--color-papaya)",
+           svg: '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 11 5-3v8l-5-3z"/>' },
+  rally: { bg: "color-mix(in oklab, var(--color-mango), white 78%)", fg: "var(--color-mango)",
+           svg: '<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/>' },
+};
 ---
-<section id="programs" class="section bg-mist">
+<section id="programs" class="section">
   <div class="container-x">
-    <SectionHeading eyebrow="Alongside the show">
-      What else<br/>
-      <span class="italic text-ulu">we’re building</span> for vendors.
-    </SectionHeading>
+    <div class="text-center max-w-[720px] mx-auto mb-14">
+      <span class="eyebrow">Alongside the show</span>
+      <h2 class="h2-display" style="margin-bottom: 16px;">
+        Everything between the truck and the customer.
+      </h2>
+      <p class="font-sans text-[18px] leading-[1.55]" style="color: var(--color-ink-soft);">
+        The podcast is the front door. These are the rooms behind it — practical work
+        we’re building so the trucks have more than a story; they have help.
+      </p>
+    </div>
 
-    <p class="mt-6 max-w-2xl text-stone text-lg">
-      The podcast is the front door. These are the rooms behind it — practical work
-      we’re building so the trucks have more than a story; they have help.
-    </p>
-
-    <div class="mt-14 grid gap-6 md:grid-cols-2">
-      {programs.map((p) => (
-        <ProgramCard
-          title={p.data.title}
-          body={p.data.body}
-          cta={p.data.cta}
-          audience={p.data.audience}
-          icon={p.data.icon}
-          meta={p.data.meta}
-        />
-      ))}
+    <div class="grid md:grid-cols-2 gap-6">
+      {programs.map((p) => {
+        const a = accentMap[p.data.icon] ?? accentMap.kit;
+        return (
+          <article class="card-pillow p-8 md:p-10">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                 style={`background: ${a.bg}; color: ${a.fg};`}>
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" set:html={a.svg}/>
+            </div>
+            <div class="flex items-baseline justify-between gap-3 mb-2">
+              <h3 class="h3-display">{p.data.title}</h3>
+              {p.data.meta && (
+                <span class="font-sans text-[11px] uppercase tracking-[0.1em]" style="color: var(--color-ink-faint);">{p.data.meta}</span>
+              )}
+            </div>
+            <p class="font-sans text-[15px] leading-[1.6] mb-6" style="color: var(--color-ink-soft);">{p.data.body}</p>
+            <a href={p.data.cta.href} class="btn btn-secondary">
+              {p.data.cta.label} <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        );
+      })}
     </div>
   </div>
 </section>

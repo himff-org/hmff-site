@@ -1,0 +1,26 @@
+---
+interface Props {
+  /** "dark" = red wordmark on cream/light bg. "light" = yellow wordmark on red/dark bg. */
+  variant?: "dark" | "light";
+  /** Pixel size for the wordmark text */
+  size?: number;
+  showLockup?: boolean;
+}
+const { variant = "dark", size = 32, showLockup = false } = Astro.props;
+const wmColor = variant === "light" ? "var(--color-brand-yellow)" : "var(--color-brand-red)";
+const dotColor = variant === "light" ? "var(--color-brand-red)" : "var(--color-brand-yellow)";
+const lockupColor = variant === "light" ? "rgba(255,247,232,0.85)" : "var(--color-ink)";
+---
+<span class="inline-flex items-baseline gap-1.5 leading-none" aria-label="Hawai‘i Mobile Food Foundation">
+  <span class="relative inline-block leading-none"
+        style={`font-family: var(--font-display); color: ${wmColor}; font-size: ${size}px; padding-right: ${Math.round(size*0.4)}px;`}>
+    HMFF<span aria-hidden="true"
+              class="absolute rounded-full"
+              style={`top: ${Math.round(size*0.06)}px; right: 0; width: ${Math.round(size*0.25)}px; height: ${Math.round(size*0.25)}px; background: ${dotColor};`}></span>
+  </span>
+  {showLockup && (
+    <span class="hidden md:inline ml-2 font-sans font-semibold text-xs uppercase tracking-[0.14em]" style={`color: ${lockupColor};`}>
+      Hawai‘i Mobile Food Foundation
+    </span>
+  )}
+</span>

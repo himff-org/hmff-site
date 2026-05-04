@@ -1,30 +1,44 @@
 ---
-import OleloPhrase from "./ui/OleloPhrase.astro";
+const missionImg = "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1100&q=80&auto=format&fit=crop";
 ---
-<section class="section bg-paper">
-  <div class="container-x grid md:grid-cols-12 gap-10 items-start">
-    <div class="md:col-span-3">
-      <p class="font-mono text-xs uppercase tracking-[0.22em] text-lava">Mission</p>
-    </div>
-    <div class="md:col-span-9">
-      <p class="font-display text-display-md md:text-display-lg leading-[1.05] text-ink"
-         style="text-wrap: balance; font-variation-settings: 'opsz' 96;">
-        We exist to give the people who feed Hawai‘i
-        <span class="italic text-ulu">a wider doorway</span> — to their customers,
-        to the trade, and to whoever <em class="italic text-lava">happens</em>
-        to be hungry that night.
-      </p>
+<section class="section">
+  <div class="container-x">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <!-- photo + sticker -->
+      <div class="relative">
+        <img src={missionImg}
+             alt="A vendor handing a plate across the order window."
+             class="w-full block"
+             style="aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; box-shadow: 0 12px 32px rgba(42,26,14,0.18);" />
+        <div class="sticker absolute"
+             style="right: -16px; bottom: 36px; transform: rotate(-3deg); min-width: 180px;">
+          <span class="accent-script block leading-none mb-1" style="font-size: 22px;">est. 2025</span>
+          <div class="display-lg" style="font-size: 40px; line-height: 1; color: var(--color-ink);">501(c)(3)</div>
+          <div class="font-sans font-semibold text-[12px] uppercase tracking-[0.08em] mt-1" style="color: var(--color-ink);">
+            Tax-deductible
+          </div>
+        </div>
+      </div>
 
-      <p class="mt-8 text-stone text-base md:text-lg leading-relaxed max-w-prose">
-        That looks like a long-form podcast you can sit with for ninety minutes. A
-        marketing curriculum vendors can actually use. And the unglamorous,
-        permit-fee, zoning-rule, county-meeting work that smooths the road for
-        everyone trying to do this for a living.
-      </p>
-
-      <p class="mt-10">
-        <OleloPhrase haw="E ʻai i ka mea i loaʻa" en="Eat what you have — be grateful for the food in front of you." />
-      </p>
+      <!-- copy -->
+      <div>
+        <span class="eyebrow">Our mission</span>
+        <h2 class="h2-display" style="margin-bottom: 24px;">
+          Vendors bring the food. We bring the wider doorway.
+        </h2>
+        <p class="font-sans text-[19px] leading-[1.55] mb-4" style="color: var(--color-ink-soft);">
+          Mobile food is how Hawai‘i feeds itself outside the restaurants — at the
+          beach, after work, on the way home, between shifts. Behind every truck and
+          popup is a person with a reason and a recipe.
+        </p>
+        <p class="font-sans text-[19px] leading-[1.55] mb-8" style="color: var(--color-ink-soft);">
+          The Foundation tells those stories — long-form — and builds the practical
+          tools that go alongside: a marketing course for vendors, and the
+          unglamorous advocacy work that smooths the road for everyone trying to do
+          this for a living.
+        </p>
+        <a href="#about" class="btn btn-ghost">Read the full story</a>
+      </div>
     </div>
   </div>
 </section>

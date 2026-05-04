@@ -1,67 +1,58 @@
 ---
+import Logo from "./Logo.astro";
 const year = new Date().getFullYear();
 ---
-<footer class="bg-sand border-t border-ink/8">
-  <div class="container-x py-20">
-    <div class="grid md:grid-cols-12 gap-10 items-start">
+<footer class="text-cream" style="background: var(--color-brand-red); padding: 80px 0 32px;">
+  <div class="container-x">
+    <div class="grid md:grid-cols-12 gap-12 mb-14">
       <div class="md:col-span-5">
-        <div class="flex items-center gap-3">
-          <svg viewBox="0 0 64 64" class="h-10 w-10" aria-hidden="true">
-            <rect width="64" height="64" rx="14" fill="#FFFFFF"/>
-            <path d="M 8 38 Q 18 24 32 32 T 56 28" stroke="#D9472B" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <circle cx="14" cy="38" r="3" fill="#2F5D3A"/>
-            <circle cx="32" cy="32" r="3" fill="#E2B23A"/>
-            <circle cx="50" cy="28" r="3.6" fill="#D9472B"/>
-          </svg>
-          <div class="font-display leading-tight">
-            <p class="text-lg text-ink">Hawaii Mobile Food</p>
-            <p class="text-xs uppercase tracking-[0.2em] font-mono text-stone">Foundation</p>
-          </div>
-        </div>
-        <p class="mt-5 text-stone text-sm leading-relaxed max-w-sm">
-          A Hawai‘i 501(c)(3) telling the stories of the people who run food trucks
-          across the islands — long-form on the site, short-form on Na Leo TV.
-          Contributions are tax-deductible to the fullest extent allowed by law.
+        <Logo variant="light" size={36} />
+        <p class="mt-4 font-sans text-sm leading-[1.6] max-w-sm" style="color: rgba(255,247,232,0.78);">
+          A Hawai‘i 501(c)(3) telling the human stories behind the islands’ food trucks —
+          long-form on the site, short-form on Na Leo TV. Contributions are tax-deductible
+          to the fullest extent allowed by law.
         </p>
+        <p class="mt-4 font-sans text-[13px] leading-[1.6]" style="color: rgba(255,247,232,0.62);">
+          PO Box 59 · Papaikou, HI 96781<br/>
+          <a href="mailto:hello@hawaiimobilefoodfoundation.org"
+             class="no-underline" style="color: rgba(255,247,232,0.78);">
+            hello@hawaiimobilefoodfoundation.org
+          </a>
+        </p>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="font-sans font-bold text-[13px] uppercase tracking-[0.1em] mb-4" style="color: var(--color-brand-yellow);">About</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="#about" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Mission</a></li>
+          <li><a href="#about" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Board & legal</a></li>
+          <li><a href="#faq" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h4 class="font-sans font-bold text-[13px] uppercase tracking-[0.1em] mb-4" style="color: var(--color-brand-yellow);">For vendors</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="#vendors" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Get in touch</a></li>
+          <li><a href="#programs" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Marketing course</a></li>
+          <li><a href="#podcast" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Be on the show</a></li>
+        </ul>
       </div>
 
       <div class="md:col-span-3">
-        <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-lava mb-4">Site</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#podcast" class="text-ink/80 hover:text-ink no-underline">Podcast</a></li>
-          <li><a href="#programs" class="text-ink/80 hover:text-ink no-underline">Programs</a></li>
-          <li><a href="#vendors" class="text-ink/80 hover:text-ink no-underline">For vendors</a></li>
-          <li><a href="#about" class="text-ink/80 hover:text-ink no-underline">About</a></li>
-          <li><a href="#support" class="text-ink/80 hover:text-ink no-underline">For funders</a></li>
-          <li><a href="#faq" class="text-ink/80 hover:text-ink no-underline">FAQ</a></li>
+        <h4 class="font-sans font-bold text-[13px] uppercase tracking-[0.1em] mb-4" style="color: var(--color-brand-yellow);">Get involved</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="#support" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Donate</a></li>
+          <li><a href="#support" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Sponsor an episode</a></li>
+          <li><a href="#support" class="text-sm no-underline hover:underline" style="color: rgba(255,247,232,0.82);">Grant inquiries</a></li>
         </ul>
-      </div>
-
-      <div class="md:col-span-4">
-        <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-lava mb-4">Reach us</p>
-        <ul class="space-y-2 text-sm text-ink/80">
-          <li>
-            <a href="mailto:hello@hawaiimobilefoodfoundation.org" class="text-ink/80 hover:text-ink no-underline">
-              hello@hawaiimobilefoodfoundation.org
-            </a>
-          </li>
-          <li class="text-ink/80 leading-snug">
-            PO Box 59<br/>
-            Papaikou, HI 96781
-          </li>
-        </ul>
-
-        <p class="mt-6 text-xs font-mono uppercase tracking-[0.18em] text-stone">
-          <a href="#support" class="text-stone hover:text-ink no-underline">Donate →</a>
-        </p>
       </div>
     </div>
 
-    <hr class="rule my-12" />
-
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-stone text-xs font-mono uppercase tracking-[0.16em]">
-      <p>© {year} Hawaii Mobile Food Foundation · 501(c)(3) Hawai‘i</p>
-      <p>Made with aloha · Built with Astro on GitHub Pages</p>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 pt-6 font-sans text-[13px]"
+         style="border-top: 1px solid rgba(255,247,232,0.14); color: rgba(255,247,232,0.62);">
+      <p>© {year} Hawai‘i Mobile Food Foundation · Mahalo for being here.</p>
+      <p class="text-[12px]">501(c)(3) Hawai‘i · Built with Astro on GitHub Pages</p>
     </div>
   </div>
 </footer>
