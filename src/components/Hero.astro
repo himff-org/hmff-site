@@ -1,34 +1,42 @@
 ---
-import DualCTA from "./DualCTA.astro";
 import OleloPhrase from "./ui/OleloPhrase.astro";
 import HawaiianIslands from "./HawaiianIslands.astro";
 ---
 <section id="top" class="relative isolate overflow-hidden hero-halo pt-28 md:pt-36 pb-16 md:pb-24">
-  <!-- soft warm dot grid -->
   <div aria-hidden="true" class="absolute inset-0 -z-10 paper-noise opacity-60"></div>
 
   <div class="container-x relative">
     <div class="max-w-4xl">
       <p class="font-mono text-xs md:text-[0.78rem] uppercase tracking-[0.28em] text-lava mb-6 fade-up">
         <span class="inline-block h-1.5 w-1.5 rounded-full bg-lava align-middle mr-2"></span>
-        A Hawai‘i 501(c)(3) · Aloha from Hawai‘i Island
+        A Hawai‘i 501(c)(3) · Papaikou, Hawai‘i Island
       </p>
 
       <h1 class="font-display font-medium text-display-lg md:text-display-xl leading-[0.95] tracking-tight text-ink fade-up"
           style="text-wrap: balance; animation-delay: 60ms;">
-        For the people<br/>
-        <span class="italic text-lava" style="font-variation-settings: 'opsz' 144;">who feed</span>
-        the islands.
+        There’s a person<br/>
+        <span class="italic text-lava" style="font-variation-settings: 'opsz' 144;">at the window.</span>
+        We tell their story.
       </h1>
 
       <p class="mt-7 max-w-2xl text-lg md:text-xl text-stone leading-relaxed fade-up" style="animation-delay: 140ms;">
-        The Hawaii Mobile Food Foundation supports the food trucks and mobile vendors who carry
-        Hawai‘i’s street-food culture forward — with permits help, training, advocacy, and the
-        rallies that bring the whole community to the curb.
+        The Hawaii Mobile Food Foundation is a long-form podcast, a marketing curriculum
+        being built for vendors, and the small advocacy work that goes with both —
+        in service of the people who feed Hawai‘i out of a window.
       </p>
 
-      <div class="mt-10 fade-up" style="animation-delay: 220ms;">
-        <DualCTA size="lg" />
+      <div class="mt-10 flex flex-wrap gap-3 fade-up" style="animation-delay: 220ms;">
+        <a href="#podcast" class="btn btn-donor !py-4 !px-7 text-base">
+          <svg viewBox="0 0 20 20" class="h-4 w-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="10" cy="10" r="8" stroke-linecap="round"/>
+            <path d="M8 7l5 3-5 3z" fill="currentColor"/>
+          </svg>
+          Listen to the podcast
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="#vendors" class="btn btn-ghost !py-4 !px-7 text-base">
+          I run a truck
+        </a>
       </div>
 
       <div class="mt-10 fade-up" style="animation-delay: 320ms;">
@@ -36,7 +44,6 @@ import HawaiianIslands from "./HawaiianIslands.astro";
       </div>
     </div>
 
-    <!-- Hawaiian Islands centerpiece -->
     <div class="mt-16 md:mt-20 fade-up" style="animation-delay: 420ms;">
       <HawaiianIslands class="w-full max-w-5xl mx-auto h-auto float-slow" />
     </div>

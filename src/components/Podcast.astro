@@ -1,0 +1,106 @@
+---
+import OleloPhrase from "./ui/OleloPhrase.astro";
+
+const PODCAST_NAME = "[Podcast Name]";
+---
+<section id="podcast" class="section bg-paper relative overflow-hidden scroll-mt-20">
+  <div aria-hidden="true"
+       class="pointer-events-none absolute -right-40 top-10 h-96 w-96 rounded-full blur-3xl opacity-40"
+       style="background: radial-gradient(circle, rgba(217,71,43,0.18), transparent 65%);"></div>
+  <div aria-hidden="true"
+       class="pointer-events-none absolute -left-40 bottom-10 h-96 w-96 rounded-full blur-3xl opacity-40"
+       style="background: radial-gradient(circle, rgba(191,216,229,0.40), transparent 65%);"></div>
+
+  <div class="container-x relative grid lg:grid-cols-12 gap-12 items-start">
+    <!-- Left: cover-art tile + listen links -->
+    <div class="lg:col-span-5">
+      <div class="surface aspect-square relative overflow-hidden p-0 flex flex-col justify-end"
+           style="background: linear-gradient(155deg, #0E1B2C 0%, #2A3A52 60%, #D9472B 130%);">
+        <!-- decorative concentric arcs (sound waves / sun) -->
+        <svg viewBox="0 0 400 400" class="absolute inset-0 w-full h-full opacity-25" aria-hidden="true">
+          <g fill="none" stroke="#F5EFE3" stroke-width="1.2">
+            <circle cx="80" cy="320" r="60"/>
+            <circle cx="80" cy="320" r="110"/>
+            <circle cx="80" cy="320" r="170"/>
+            <circle cx="80" cy="320" r="240"/>
+            <circle cx="80" cy="320" r="320"/>
+          </g>
+        </svg>
+        <!-- text block -->
+        <div class="relative p-8 md:p-10 text-cream">
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-gold mb-3">A podcast from HMFF</p>
+          <p class="font-display text-4xl md:text-5xl leading-[1.0] tracking-tight"
+             style="font-variation-settings: 'opsz' 144;">
+            <span class="block italic">{PODCAST_NAME}</span>
+          </p>
+          <p class="mt-4 text-cream/75 text-sm max-w-xs">
+            Long-form conversations with the people who run Hawai‘i’s food trucks.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-3">
+        <a href="#" class="btn btn-vendor w-full justify-between">
+          <span>Listen on the site</span>
+          <span class="font-mono text-[0.65rem] uppercase tracking-[0.18em] opacity-70">Coming soon</span>
+        </a>
+        <div class="grid grid-cols-3 gap-3">
+          <a href="#" class="btn btn-ghost !py-3 text-sm justify-center">Na Leo TV</a>
+          <a href="#" class="btn btn-ghost !py-3 text-sm justify-center">YouTube</a>
+          <a href="#" class="btn btn-ghost !py-3 text-sm justify-center">Spotify</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: explainer -->
+    <div class="lg:col-span-7">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-lava mb-4">The Podcast</p>
+      <h2 class="text-display-md md:text-display-lg leading-[1.05] text-ink" style="text-wrap: balance;">
+        The food’s the doorway.<br/>
+        <span class="italic text-lava">The story’s</span> what we sit with.
+      </h2>
+
+      <p class="mt-7 text-stone text-lg leading-relaxed max-w-xl">
+        Every truck has a person behind the window — a reason they cook, a path that
+        got them there, a thing they care about that you don’t hear in a five-minute
+        order. We spend an hour and a half with them. The food, sure. But also the
+        rest of it.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-6 max-w-xl">
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/85 mb-2">The long-form</p>
+          <p class="text-stone text-sm leading-relaxed">
+            ~90-minute conversations, hosted here on the Foundation site (and YouTube).
+            Joe-Rogan-length. No edits for time, only for clarity.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/85 mb-2">The TV cut</p>
+          <p class="text-stone text-sm leading-relaxed">
+            A 15-minute version airs on <strong class="text-ink">Na Leo TV</strong>,
+            our local public-access channel — the doorway in. Watch there, then
+            come here for the full thing.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/85 mb-2">Where we are</p>
+          <p class="text-stone text-sm leading-relaxed">
+            Two episodes in the can, more on the calendar. Pre-launch — we’ll publish
+            here first.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/85 mb-2">Want on the show?</p>
+          <p class="text-stone text-sm leading-relaxed">
+            <a href="#vendors" class="text-ulu hover:text-lava">Tell us about your truck →</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10">
+        <OleloPhrase haw="ʻAʻole hiki ke huna i kekahi mea i mua o ka lā" en="Nothing can be hidden before the sun." />
+      </div>
+    </div>
+  </div>
+</section>

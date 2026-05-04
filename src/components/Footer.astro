@@ -1,5 +1,4 @@
 ---
-import DualCTA from "./DualCTA.astro";
 const year = new Date().getFullYear();
 ---
 <footer class="bg-sand border-t border-ink/8">
@@ -20,19 +19,20 @@ const year = new Date().getFullYear();
           </div>
         </div>
         <p class="mt-5 text-stone text-sm leading-relaxed max-w-sm">
-          A Hawai‘i 501(c)(3) supporting the food trucks and mobile vendors who carry the
-          islands’ street-food culture forward. Contributions are tax-deductible to the fullest
-          extent allowed by law.
+          A Hawai‘i 501(c)(3) telling the stories of the people who run food trucks
+          across the islands — long-form on the site, short-form on Na Leo TV.
+          Contributions are tax-deductible to the fullest extent allowed by law.
         </p>
       </div>
 
       <div class="md:col-span-3">
         <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-lava mb-4">Site</p>
         <ul class="space-y-2 text-sm">
+          <li><a href="#podcast" class="text-ink/80 hover:text-ink no-underline">Podcast</a></li>
           <li><a href="#programs" class="text-ink/80 hover:text-ink no-underline">Programs</a></li>
           <li><a href="#vendors" class="text-ink/80 hover:text-ink no-underline">For vendors</a></li>
-          <li><a href="#support" class="text-ink/80 hover:text-ink no-underline">For supporters</a></li>
           <li><a href="#about" class="text-ink/80 hover:text-ink no-underline">About</a></li>
+          <li><a href="#support" class="text-ink/80 hover:text-ink no-underline">For funders</a></li>
           <li><a href="#faq" class="text-ink/80 hover:text-ink no-underline">FAQ</a></li>
         </ul>
       </div>
@@ -40,13 +40,20 @@ const year = new Date().getFullYear();
       <div class="md:col-span-4">
         <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-lava mb-4">Reach us</p>
         <ul class="space-y-2 text-sm text-ink/80">
-          <li><a href="mailto:hello@hawaiimobilefoodfoundation.org" class="text-ink/80 hover:text-ink no-underline">hello@hawaiimobilefoodfoundation.org</a></li>
-          <li class="text-stone text-xs font-mono uppercase tracking-[0.18em] mt-2">Mailing address forthcoming</li>
+          <li>
+            <a href="mailto:hello@hawaiimobilefoodfoundation.org" class="text-ink/80 hover:text-ink no-underline">
+              hello@hawaiimobilefoodfoundation.org
+            </a>
+          </li>
+          <li class="text-ink/80 leading-snug">
+            PO Box 59<br/>
+            Papaikou, HI 96781
+          </li>
         </ul>
 
-        <div class="mt-6">
-          <DualCTA align="left" />
-        </div>
+        <p class="mt-6 text-xs font-mono uppercase tracking-[0.18em] text-stone">
+          <a href="#support" class="text-stone hover:text-ink no-underline">Donate →</a>
+        </p>
       </div>
     </div>
 

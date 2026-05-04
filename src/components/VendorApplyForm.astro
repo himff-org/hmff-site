@@ -3,7 +3,7 @@ const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_VENDOR ?? "";
 const action = formspreeEndpoint || "mailto:hello@hawaiimobilefoodfoundation.org";
 const method = formspreeEndpoint ? "POST" : "post";
 ---
-<section id="vendors" class="section bg-mist scroll-mt-20 relative overflow-hidden">
+<section id="vendors" class="section bg-paper scroll-mt-20 relative overflow-hidden">
   <div aria-hidden="true"
        class="pointer-events-none absolute -left-32 top-1/3 h-80 w-80 rounded-full blur-3xl opacity-50"
        style="background: radial-gradient(circle, rgba(47,93,58,0.20), transparent 65%);"></div>
@@ -15,21 +15,21 @@ const method = formspreeEndpoint ? "POST" : "post";
     <div class="lg:col-span-5">
       <p class="font-mono text-xs uppercase tracking-[0.22em] text-ulu mb-4">For vendors</p>
       <h2 class="text-display-md md:text-display-lg leading-[1.05] text-ink" style="text-wrap: balance;">
-        Run a truck?<br/>
-        <span class="italic text-ulu">We have your back.</span>
+        Tell us about<br/>
+        <span class="italic text-ulu">your truck.</span>
       </h2>
       <p class="mt-6 text-stone text-lg leading-relaxed max-w-md">
-        Tell us where you’re at — a permit you’re stuck on, training you need, signage that’d help —
-        and we’ll send back a Welcome Kit and a real human who can help.
+        Whether you want to be on the show, get into the next course cohort, or just
+        want to talk to someone who gets what you’re dealing with — leave a note. We
+        read everything; we reply within a week.
       </p>
 
       <ul class="mt-8 space-y-3 text-sm text-ink/85">
         {[
-          "Permit-paperwork help (DOH + County Peddler’s Licence)",
-          "ServSafe training voucher",
-          "Branded QR signage for your window",
-          "Access to quarterly rallies",
-          "Membership in our vendor network",
+          "Long-form podcast: 90-minute conversation about your truck and you",
+          "Marketing course: pilot cohort opens soon — sign up for updates",
+          "Advocacy: tell us a regulator headache and we'll add it to the list",
+          "Or just say hi — we want to know who's out there",
         ].map((b) => (
           <li class="flex gap-3 items-start">
             <span aria-hidden="true" class="mt-1.5 h-2 w-2 rounded-full bg-ulu shrink-0"></span>
@@ -39,8 +39,7 @@ const method = formspreeEndpoint ? "POST" : "post";
       </ul>
     </div>
 
-    <form class="lg:col-span-7 surface p-6 md:p-9"
-          action={action} method={method}>
+    <form class="lg:col-span-7 surface p-6 md:p-9" action={action} method={method}>
       <div class="grid sm:grid-cols-2 gap-4">
         <label class="block">
           <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Your name</span>
@@ -49,7 +48,7 @@ const method = formspreeEndpoint ? "POST" : "post";
         </label>
         <label class="block">
           <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Truck / business</span>
-          <input required name="business" type="text"
+          <input name="business" type="text"
                  class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition"/>
         </label>
         <label class="block">
@@ -71,26 +70,26 @@ const method = formspreeEndpoint ? "POST" : "post";
           </select>
         </label>
         <label class="block sm:col-span-2">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Permit status</span>
-          <select required name="permit_status"
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">What brings you here?</span>
+          <select required name="intent"
                   class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition">
             <option value="">Choose…</option>
-            <option>Fully permitted and operating</option>
-            <option>Permitted, currently inactive</option>
-            <option>In progress</option>
-            <option>Need help getting started</option>
+            <option>I want to be on the podcast</option>
+            <option>I want into the next marketing course</option>
+            <option>I have an advocacy / regulator issue</option>
+            <option>I just want to talk</option>
           </select>
         </label>
         <label class="block sm:col-span-2">
-          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">What would help most?</span>
-          <textarea name="needs" rows="4"
+          <span class="block font-mono text-[0.7rem] uppercase tracking-[0.18em] text-stone mb-1.5">Anything else? (Optional)</span>
+          <textarea name="notes" rows="4"
                     class="w-full px-4 py-3 rounded-xl border border-ink/12 bg-mist focus:bg-paper focus:outline-none focus:border-ulu focus:ring-2 focus:ring-ulu/20 transition resize-y"
-                    placeholder="A permit you’re stuck on, an event you’d join, training you’d like…"></textarea>
+                    placeholder="The story behind your truck, what you'd want out of a course, the rule that's killing you…"></textarea>
         </label>
       </div>
 
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
-      <input type="hidden" name="_subject" value="HMFF: New vendor application" />
+      <input type="hidden" name="_subject" value="HMFF: vendor inquiry" />
       <input type="hidden" name="_next" value="/mahalo" />
 
       <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
@@ -98,7 +97,7 @@ const method = formspreeEndpoint ? "POST" : "post";
           We’ll respond within a week. Your info stays with HMFF.
         </p>
         <button type="submit" class="btn btn-vendor">
-          Apply for the Welcome Kit
+          Send it
           <span aria-hidden="true">→</span>
         </button>
       </div>
