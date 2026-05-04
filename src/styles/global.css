@@ -7,18 +7,31 @@
 @import "@fontsource/dm-mono/500.css";
 
 @theme {
+  /* core */
   --color-ink: #0E1B2C;
-  --color-ink-soft: #1A2A3F;
+  --color-ink-soft: #2A3A52;
+  --color-stone: #5B6470;
+  --color-stone-light: #98A0AC;
+
+  /* surfaces (Apple-style two-tone with a warm twist) */
+  --color-paper: #FFFFFF;
+  --color-mist: #FBF8F1;       /* warm near-white — page bg */
   --color-cream: #F5EFE3;
   --color-cream-deep: #ECE3D0;
+  --color-sand: #F4ECDC;       /* alternating section tint */
+
+  /* accents */
   --color-ulu: #2F5D3A;
   --color-ulu-light: #4A7A55;
   --color-lava: #D9472B;
   --color-lava-light: #E66B52;
+  --color-coral: #F4A582;      /* sunrise — soft, friendly */
   --color-gold: #E2B23A;
-  --color-stone: #5B6470;
-  --color-stone-light: #8C95A0;
+  --color-gold-soft: #EFD37D;
+  --color-sky: #BFD8E5;        /* tropical sky */
+  --color-sky-soft: #DDEAF1;
 
+  /* typography */
   --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, "SF Mono", monospace;
@@ -31,7 +44,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: var(--color-cream);
+    background: var(--color-mist);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
@@ -39,12 +52,12 @@
   }
 
   body {
-    background: var(--color-cream);
+    background: var(--color-mist);
     overflow-x: hidden;
   }
 
   ::selection {
-    background: var(--color-gold);
+    background: var(--color-gold-soft);
     color: var(--color-ink);
   }
 
@@ -71,34 +84,6 @@
     color: var(--color-lava);
   }
 
-  /* Subtle paper texture on cream sections */
-  .paper-noise {
-    background-image:
-      radial-gradient(rgba(14, 27, 44, 0.025) 1px, transparent 1px),
-      radial-gradient(rgba(14, 27, 44, 0.018) 1px, transparent 1px);
-    background-size: 4px 4px, 7px 7px;
-    background-position: 0 0, 2px 3px;
-  }
-
-  /* Topographic line motif for dark sections */
-  .topo {
-    background-image:
-      repeating-radial-gradient(
-        circle at 30% 70%,
-        transparent 0,
-        transparent 38px,
-        rgba(226, 178, 58, 0.04) 39px,
-        transparent 40px
-      ),
-      repeating-radial-gradient(
-        circle at 80% 20%,
-        transparent 0,
-        transparent 28px,
-        rgba(217, 71, 43, 0.05) 29px,
-        transparent 30px
-      );
-  }
-
   details > summary {
     list-style: none;
     cursor: pointer;
@@ -118,6 +103,23 @@
 }
 
 @layer components {
+  /* surfaces */
+  .surface {
+    background: var(--color-paper);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
+    border-radius: 1.5rem;
+    box-shadow:
+      0 1px 2px rgba(14, 27, 44, 0.04),
+      0 8px 24px -12px rgba(14, 27, 44, 0.10);
+  }
+
+  .surface-soft {
+    background: var(--color-paper);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 6%, transparent);
+    border-radius: 1.5rem;
+  }
+
+  /* buttons — softer, Apple-pill */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -127,10 +129,10 @@
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: 0.95rem;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.005em;
     border-radius: 999px;
     text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background 0.2s ease;
     will-change: transform;
   }
 
@@ -140,34 +142,36 @@
 
   .btn-vendor {
     background: var(--color-ulu);
-    color: var(--color-cream);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 6px 18px -8px rgba(47, 93, 58, 0.6);
+    color: var(--color-paper);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 8px 22px -10px rgba(47, 93, 58, 0.55);
   }
 
   .btn-vendor:hover {
     background: var(--color-ulu-light);
-    color: var(--color-cream);
+    color: var(--color-paper);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.22) inset, 0 12px 28px -10px rgba(47, 93, 58, 0.55);
   }
 
   .btn-donor {
     background: var(--color-lava);
-    color: var(--color-cream);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 6px 18px -8px rgba(217, 71, 43, 0.6);
+    color: var(--color-paper);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.20) inset, 0 8px 22px -10px rgba(217, 71, 43, 0.55);
   }
 
   .btn-donor:hover {
     background: var(--color-lava-light);
-    color: var(--color-cream);
+    color: var(--color-paper);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24) inset, 0 12px 28px -10px rgba(217, 71, 43, 0.55);
   }
 
   .btn-ghost {
     background: transparent;
     color: var(--color-ink);
-    border: 1px solid color-mix(in srgb, var(--color-ink) 20%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 18%, transparent);
   }
 
   .btn-ghost:hover {
-    background: color-mix(in srgb, var(--color-ink) 5%, transparent);
+    background: color-mix(in srgb, var(--color-ink) 4%, transparent);
     color: var(--color-ink);
   }
 
@@ -182,7 +186,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+    border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
     background: color-mix(in srgb, currentColor 6%, transparent);
   }
 
@@ -199,26 +203,36 @@
 
   .rule {
     height: 1px;
-    background: color-mix(in srgb, currentColor 15%, transparent);
+    background: color-mix(in srgb, currentColor 12%, transparent);
     border: 0;
   }
 
+  /* ‘Ōlelo accent */
   .olelo {
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    color: var(--color-gold);
+    color: var(--color-ulu);
     letter-spacing: 0;
   }
 
-  .olelo summary {
-    display: inline;
+  /* Apple-style hero halo — soft warm gradient */
+  .hero-halo {
+    background:
+      radial-gradient(ellipse 90% 60% at 75% 0%, rgba(244, 165, 130, 0.28), transparent 65%),
+      radial-gradient(ellipse 70% 55% at 15% 35%, rgba(191, 216, 229, 0.36), transparent 70%),
+      radial-gradient(ellipse 60% 45% at 50% 95%, rgba(226, 178, 58, 0.18), transparent 70%),
+      var(--color-mist);
   }
-}
 
-@keyframes route-draw {
-  from { stroke-dashoffset: 1200; }
-  to { stroke-dashoffset: 0; }
+  /* gentle paper texture */
+  .paper-noise {
+    background-image:
+      radial-gradient(rgba(14, 27, 44, 0.022) 1px, transparent 1px),
+      radial-gradient(rgba(14, 27, 44, 0.014) 1px, transparent 1px);
+    background-size: 4px 4px, 7px 7px;
+    background-position: 0 0, 2px 3px;
+  }
 }
 
 @keyframes fade-up {
@@ -228,4 +242,13 @@
 
 .fade-up {
   animation: fade-up 0.7s ease-out both;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
 }

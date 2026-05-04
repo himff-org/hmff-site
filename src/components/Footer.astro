@@ -2,24 +2,24 @@
 import DualCTA from "./DualCTA.astro";
 const year = new Date().getFullYear();
 ---
-<footer class="bg-ink text-cream">
+<footer class="bg-sand border-t border-ink/8">
   <div class="container-x py-20">
     <div class="grid md:grid-cols-12 gap-10 items-start">
       <div class="md:col-span-5">
         <div class="flex items-center gap-3">
           <svg viewBox="0 0 64 64" class="h-10 w-10" aria-hidden="true">
-            <rect width="64" height="64" rx="14" fill="#1A2A3F"/>
-            <path d="M10 44 Q 20 30 32 36 T 54 30" stroke="#E2B23A" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <circle cx="14" cy="44" r="2.6" fill="#D9472B"/>
-            <circle cx="32" cy="36" r="2.6" fill="#D9472B"/>
-            <circle cx="50" cy="30" r="2.6" fill="#D9472B"/>
+            <rect width="64" height="64" rx="14" fill="#FFFFFF"/>
+            <path d="M 8 38 Q 18 24 32 32 T 56 28" stroke="#D9472B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="14" cy="38" r="3" fill="#2F5D3A"/>
+            <circle cx="32" cy="32" r="3" fill="#E2B23A"/>
+            <circle cx="50" cy="28" r="3.6" fill="#D9472B"/>
           </svg>
           <div class="font-display leading-tight">
-            <p class="text-lg">Hawaii Mobile Food</p>
-            <p class="text-xs uppercase tracking-[0.2em] font-mono text-cream/60">Foundation</p>
+            <p class="text-lg text-ink">Hawaii Mobile Food</p>
+            <p class="text-xs uppercase tracking-[0.2em] font-mono text-stone">Foundation</p>
           </div>
         </div>
-        <p class="mt-5 text-cream/70 text-sm leading-relaxed max-w-sm">
+        <p class="mt-5 text-stone text-sm leading-relaxed max-w-sm">
           A Hawai‘i 501(c)(3) supporting the food trucks and mobile vendors who carry the
           islands’ street-food culture forward. Contributions are tax-deductible to the fullest
           extent allowed by law.
@@ -27,21 +27,21 @@ const year = new Date().getFullYear();
       </div>
 
       <div class="md:col-span-3">
-        <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-gold mb-4">Site</p>
+        <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-lava mb-4">Site</p>
         <ul class="space-y-2 text-sm">
-          <li><a href="#programs" class="text-cream/80 hover:text-cream no-underline">Programs</a></li>
-          <li><a href="#vendors" class="text-cream/80 hover:text-cream no-underline">For vendors</a></li>
-          <li><a href="#support" class="text-cream/80 hover:text-cream no-underline">For supporters</a></li>
-          <li><a href="#about" class="text-cream/80 hover:text-cream no-underline">About</a></li>
-          <li><a href="#faq" class="text-cream/80 hover:text-cream no-underline">FAQ</a></li>
+          <li><a href="#programs" class="text-ink/80 hover:text-ink no-underline">Programs</a></li>
+          <li><a href="#vendors" class="text-ink/80 hover:text-ink no-underline">For vendors</a></li>
+          <li><a href="#support" class="text-ink/80 hover:text-ink no-underline">For supporters</a></li>
+          <li><a href="#about" class="text-ink/80 hover:text-ink no-underline">About</a></li>
+          <li><a href="#faq" class="text-ink/80 hover:text-ink no-underline">FAQ</a></li>
         </ul>
       </div>
 
       <div class="md:col-span-4">
-        <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-gold mb-4">Reach us</p>
-        <ul class="space-y-2 text-sm text-cream/80">
-          <li><a href="mailto:hello@hawaiimobilefoodfoundation.org" class="text-cream/80 hover:text-cream no-underline">hello@hawaiimobilefoodfoundation.org</a></li>
-          <li class="text-cream/55 text-xs font-mono uppercase tracking-[0.18em] mt-2">Mailing address forthcoming</li>
+        <p class="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-lava mb-4">Reach us</p>
+        <ul class="space-y-2 text-sm text-ink/80">
+          <li><a href="mailto:hello@hawaiimobilefoodfoundation.org" class="text-ink/80 hover:text-ink no-underline">hello@hawaiimobilefoodfoundation.org</a></li>
+          <li class="text-stone text-xs font-mono uppercase tracking-[0.18em] mt-2">Mailing address forthcoming</li>
         </ul>
 
         <div class="mt-6">
@@ -50,11 +50,11 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <hr class="rule my-12 border-cream/15" />
+    <hr class="rule my-12" />
 
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-cream/55 text-xs font-mono uppercase tracking-[0.16em]">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-stone text-xs font-mono uppercase tracking-[0.16em]">
       <p>© {year} Hawaii Mobile Food Foundation · 501(c)(3) Hawai‘i</p>
-      <p>Site built with Astro · Hosted on GitHub Pages · Made with aloha</p>
+      <p>Made with aloha · Built with Astro on GitHub Pages</p>
     </div>
   </div>
 </footer>

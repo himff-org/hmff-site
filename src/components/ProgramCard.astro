@@ -14,16 +14,16 @@ const accent = audience === "vendor" ? "var(--color-ulu)"
               : "var(--color-gold)";
 const ctaClass = audience === "donor" ? "btn-donor" : "btn-vendor";
 ---
-<article class="group relative flex flex-col bg-cream-deep/60 border border-ink/8 rounded-3xl p-7 md:p-8 hover:border-ink/20 transition-colors overflow-hidden">
-  <!-- accent corner -->
+<article class="group surface relative flex flex-col p-7 md:p-9 hover:-translate-y-1 transition-transform duration-300 overflow-hidden">
+  <!-- accent corner glow -->
   <span aria-hidden="true"
-        class="absolute -top-12 -right-12 h-32 w-32 rounded-full opacity-25 blur-2xl transition-opacity group-hover:opacity-40"
+        class="absolute -top-12 -right-12 h-32 w-32 rounded-full opacity-20 blur-2xl transition-opacity group-hover:opacity-35"
         style={`background: ${accent};`}></span>
 
   <div class="relative">
     <div class="flex items-center justify-between mb-6">
-      <div class="h-11 w-11 rounded-xl flex items-center justify-center"
-           style={`background: color-mix(in srgb, ${accent} 14%, transparent); color: ${accent};`}>
+      <div class="h-12 w-12 rounded-2xl flex items-center justify-center"
+           style={`background: color-mix(in srgb, ${accent} 12%, transparent); color: ${accent};`}>
         {icon === "kit" && (
           <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8z"/>
@@ -56,7 +56,7 @@ const ctaClass = audience === "donor" ? "btn-donor" : "btn-vendor";
       )}
     </div>
 
-    <h3 class="font-display text-2xl md:text-[1.7rem] leading-tight mb-3" style="font-variation-settings: 'opsz' 60;">
+    <h3 class="font-display text-2xl md:text-[1.7rem] leading-tight text-ink mb-3" style="font-variation-settings: 'opsz' 60;">
       {title}
     </h3>
     <p class="text-stone text-[0.96rem] leading-relaxed mb-6">{body}</p>
