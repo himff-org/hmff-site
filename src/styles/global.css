@@ -132,6 +132,9 @@
     line-height: 0.96;
     letter-spacing: -0.005em;
   }
+
+  /* Hero headline lives on a dark photo — must be cream, not the global ink default */
+  .site-hero-h { color: var(--color-cream); }
   .display-lg {
     font-family: var(--font-display);
     font-weight: 400;
