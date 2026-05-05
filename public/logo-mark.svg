@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
-  <rect width="120" height="120" rx="16" fill="#D7261C"></rect>
-  <text x="60" y="78" font-family="Sigmar, Georgia, serif" font-size="56" fill="#FFF7E8" text-anchor="middle">H</text>
-  <circle cx="92" cy="32" r="7" fill="#F5C518"></circle>
+  <rect width="120" height="120" rx="16" fill="#D7261C"/>
+  <text x="60" y="82" font-family="Sigmar, Georgia, serif" font-size="60" fill="#FFF7E8" text-anchor="middle">Hi</text>
 </svg>

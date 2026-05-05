@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
-  <defs>
-    
-  </defs>
-  <text x="14" y="76" class="wm">HMFF</text>
-  <circle cx="232" cy="40" r="9" class="dot"></circle>
+  <style>
+    .wm { font-family: Sigmar, Georgia, serif; font-size: 64px; fill: #D7261C; }
+    .sub { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; fill: #2A1A0E; letter-spacing: 0.04em; }
+  </style>
+  <text x="14" y="76" class="wm">HiMFF</text>
   <text x="14" y="100" class="sub">Hawai‘i Mobile Food Foundation</text>
 </svg>
