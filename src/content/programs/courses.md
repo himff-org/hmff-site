@@ -1,7 +1,7 @@
 ---
 order: 1
 title: "Marketing Courses"
-body: "Built for vendors who'd rather cook than write captions. Curriculum is in development right now — covering pricing, the basics of social media that actually drives a line, and how to talk about your truck without sounding like everyone else's. First pilot cohort opens soon."
+body: "Built for vendors who'd rather cook than write captions. Curriculum in development right now — pricing, the social-media basics that actually drive a line, and how to talk about a truck without sounding like everyone else's. First pilot cohort opens soon."
 audience: "vendor"
 icon: "kit"
 meta: "Pilot · 2026"
