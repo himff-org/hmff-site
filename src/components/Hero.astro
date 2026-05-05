@@ -7,23 +7,23 @@ const heroImg = "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=
     src={heroImg}
     alt="A Hawai‘i food truck at golden hour — light from the order window, hands working inside."
     class="site-hero-img absolute inset-0 w-full h-full object-cover -z-20"
-    style="filter: saturate(1.05) contrast(1.02) brightness(0.84);"
+    style="filter: saturate(1.05) contrast(1.02) brightness(0.62);"
   />
-  <!-- protection gradient: top + bottom darken so headlines pop -->
+  <!-- protection gradient: vertical darken + left-side darken so the text column always sits on a dark patch -->
   <div aria-hidden="true" class="site-hero-grad absolute inset-0 -z-10"
-       style="background: linear-gradient(180deg, rgba(42,26,14,0.55) 0%, rgba(42,26,14,0.10) 30%, rgba(42,26,14,0.55) 72%, rgba(42,26,14,0.92) 100%), radial-gradient(120% 80% at 20% 100%, rgba(42,26,14,0.55) 0%, rgba(42,26,14,0) 60%);"></div>
+       style="background: linear-gradient(180deg, rgba(42,26,14,0.45) 0%, rgba(42,26,14,0.25) 25%, rgba(42,26,14,0.55) 60%, rgba(42,26,14,0.95) 100%), linear-gradient(90deg, rgba(42,26,14,0.65) 0%, rgba(42,26,14,0.25) 55%, rgba(42,26,14,0) 85%);"></div>
 
   <div class="site-hero-content container-x py-24 md:py-28 pt-36 md:pt-40 relative z-10 text-cream">
     <p class="eyebrow eyebrow-light fade-up">Hawai‘i Mobile Food Foundation · Papaikou</p>
 
     <h1 class="site-hero-h display-xl mb-6 max-w-[18ch] fade-up"
-        style="text-shadow: 0 2px 0 rgba(42,26,14,0.35), 0 8px 28px rgba(42,26,14,0.55); animation-delay: 60ms;">
+        style="text-shadow: 0 2px 0 rgba(42,26,14,0.6), 0 4px 16px rgba(42,26,14,0.85), 0 12px 40px rgba(42,26,14,0.7); animation-delay: 60ms;">
       The food is theirs.<br/>
       <span style="color: var(--color-brand-yellow);">The story is ours.</span>
     </h1>
 
     <p class="site-hero-sub mb-8 max-w-[44ch] text-[19px] md:text-[20px] leading-[1.55] font-medium text-cream fade-up"
-       style="text-shadow: 0 1px 12px rgba(42,26,14,0.65); animation-delay: 140ms;">
+       style="text-shadow: 0 1px 2px rgba(42,26,14,0.85), 0 2px 16px rgba(42,26,14,0.7); animation-delay: 140ms;">
       We sit with Hawai‘i’s food-truck operators for ninety minutes — the food, the
       reasons, the rest of it. A long-form podcast, a marketing course in development,
       and the unglamorous work that goes with both.
